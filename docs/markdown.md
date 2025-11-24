@@ -765,10 +765,11 @@ Wrap badges in link syntax:
 
 ### Badge Gallery & Practical Examples
 
-Here's a curated collection of practical badge examples you can copy and customize:
+Here's a curated collection of practical badge examples with actual rendered badges you can copy and customize:
 
 #### Project Status & Maintenance
 
+**Code:**
 ```markdown
 [![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)]()
 [![Status: Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/user/repo)
@@ -777,8 +778,19 @@ Here's a curated collection of practical badge examples you can copy and customi
 [![Status: Stable](https://img.shields.io/badge/Status-Stable-brightgreen.svg)]()
 ```
 
+**Rendered:**
+
+[![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)]()
+[![Status: Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)]()
+[![Status: Deprecated](https://img.shields.io/badge/Status-Deprecated-red.svg)]()
+[![Status: Beta](https://img.shields.io/badge/Status-Beta-orange.svg)]()
+[![Status: Stable](https://img.shields.io/badge/Status-Stable-brightgreen.svg)]()
+
+---
+
 #### License Badges
 
+**Code:**
 ```markdown
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-orange.svg)](LICENSE)
@@ -786,16 +798,35 @@ Here's a curated collection of practical badge examples you can copy and customi
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg)](LICENSE)
 ```
 
+**Rendered:**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)]()
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-orange.svg)]()
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-red.svg)]()
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg)]()
+
+---
+
 #### Version & Release Badges
 
+**Code:**
 ```markdown
 [![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-blue.svg)](https://github.com/user/repo/releases)
 [![Latest Release](https://img.shields.io/badge/Latest%20Release-v2.5.1-blue.svg)](https://github.com/user/repo/releases/latest)
 [![Release Date](https://img.shields.io/badge/Release%20Date-Nov%202025-blue.svg)]()
 ```
 
+**Rendered:**
+
+[![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-blue.svg)]()
+[![Latest Release](https://img.shields.io/badge/Latest%20Release-v2.5.1-blue.svg)]()
+[![Release Date](https://img.shields.io/badge/Release%20Date-Nov%202025-blue.svg)]()
+
+---
+
 #### Language & Framework Badges
 
+**Code:**
 ```markdown
 [![Python: 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![Node.js: 14+](https://img.shields.io/badge/Node.js-14%2B-green.svg)](https://nodejs.org/)
@@ -804,8 +835,19 @@ Here's a curated collection of practical badge examples you can copy and customi
 [![Go 1.19+](https://img.shields.io/badge/Go-1.19%2B-cyan.svg)]()
 ```
 
+**Rendered:**
+
+[![Python: 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)]()
+[![Node.js: 14+](https://img.shields.io/badge/Node.js-14%2B-green.svg)]()
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-yellow.svg)]()
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0%2B-blue.svg)]()
+[![Go 1.19+](https://img.shields.io/badge/Go-1.19%2B-cyan.svg)]()
+
+---
+
 #### Platform & OS Badges
 
+**Code:**
 ```markdown
 [![Platform: Windows](https://img.shields.io/badge/Platform-Windows-blue.svg)]()
 [![Platform: macOS](https://img.shields.io/badge/Platform-macOS-silver.svg)]()
@@ -813,8 +855,18 @@ Here's a curated collection of practical badge examples you can copy and customi
 [![Cross-Platform](https://img.shields.io/badge/Cross%20Platform-Yes-brightgreen.svg)]()
 ```
 
+**Rendered:**
+
+[![Platform: Windows](https://img.shields.io/badge/Platform-Windows-blue.svg)]()
+[![Platform: macOS](https://img.shields.io/badge/Platform-macOS-silver.svg)]()
+[![Platform: Linux](https://img.shields.io/badge/Platform-Linux-orange.svg)]()
+[![Cross-Platform](https://img.shields.io/badge/Cross%20Platform-Yes-brightgreen.svg)]()
+
+---
+
 #### Build & CI/CD Badges
 
+**Code:**
 ```markdown
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](https://github.com/user/repo/actions)
 [![Build Status](https://img.shields.io/badge/Build-Failing-red.svg)](https://github.com/user/repo/actions)
@@ -822,8 +874,18 @@ Here's a curated collection of practical badge examples you can copy and customi
 [![Coverage: 95%](https://img.shields.io/badge/Coverage-95%25-brightgreen.svg)]()
 ```
 
+**Rendered:**
+
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
+[![Build Status](https://img.shields.io/badge/Build-Failing-red.svg)]()
+[![Tests: 42/42 Passing](https://img.shields.io/badge/Tests-42%2F42%20passing-brightgreen.svg)]()
+[![Coverage: 95%](https://img.shields.io/badge/Coverage-95%25-brightgreen.svg)]()
+
+---
+
 #### Documentation & Links
 
+**Code:**
 ```markdown
 [![Documentation](https://img.shields.io/badge/Documentation-Available-blue.svg)](./docs/)
 [![Wiki](https://img.shields.io/badge/Wiki-Complete-blue.svg)](./wiki/)
@@ -831,8 +893,18 @@ Here's a curated collection of practical badge examples you can copy and customi
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Active-brightgreen.svg)](https://user.github.io/repo/)
 ```
 
+**Rendered:**
+
+[![Documentation](https://img.shields.io/badge/Documentation-Available-blue.svg)]()
+[![Wiki](https://img.shields.io/badge/Wiki-Complete-blue.svg)]()
+[![API Docs](https://img.shields.io/badge/API%20Docs-Live-blue.svg)]()
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Active-brightgreen.svg)]()
+
+---
+
 #### Contribution & Community
 
+**Code:**
 ```markdown
 [![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Good First Issue](https://img.shields.io/badge/Good%20First%20Issue-Available-brightgreen.svg)](https://github.com/user/repo/issues?q=label%3A%22good+first+issue%22)
@@ -840,17 +912,18 @@ Here's a curated collection of practical badge examples you can copy and customi
 [![Open Issues](https://img.shields.io/badge/Open%20Issues-5-blue.svg)](https://github.com/user/repo/issues)
 ```
 
-#### Downloads & Social
+**Rendered:**
 
-```markdown
-[![GitHub Stars](https://img.shields.io/github/stars/user/repo.svg?style=social)](https://github.com/user/repo)
-[![GitHub Issues](https://img.shields.io/github/issues/user/repo.svg)](https://github.com/user/repo/issues)
-[![Downloads](https://img.shields.io/badge/Downloads-10%2C000%2B-brightgreen.svg)]()
-[![Docker Pulls](https://img.shields.io/badge/Docker%20Pulls-50%2C000%2B-blue.svg)]()
-```
+[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)]()
+[![Good First Issue](https://img.shields.io/badge/Good%20First%20Issue-Available-brightgreen.svg)]()
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)]()
+[![Open Issues](https://img.shields.io/badge/Open%20Issues-5-blue.svg)]()
+
+---
 
 #### Development Status
 
+**Code:**
 ```markdown
 [![Development: Active](https://img.shields.io/badge/Development-Active-brightgreen.svg)]()
 [![Last Commit: 2 days ago](https://img.shields.io/badge/Last%20Commit-2%20days%20ago-blue.svg)]()
@@ -858,8 +931,18 @@ Here's a curated collection of practical badge examples you can copy and customi
 [![Code Quality: Good](https://img.shields.io/badge/Code%20Quality-Good-brightgreen.svg)]()
 ```
 
+**Rendered:**
+
+[![Development: Active](https://img.shields.io/badge/Development-Active-brightgreen.svg)]()
+[![Last Commit: 2 days ago](https://img.shields.io/badge/Last%20Commit-2%20days%20ago-blue.svg)]()
+[![Last Updated: Nov 2025](https://img.shields.io/badge/Last%20Updated-Nov%202025-blue.svg)]()
+[![Code Quality: Good](https://img.shields.io/badge/Code%20Quality-Good-brightgreen.svg)]()
+
+---
+
 #### Support & Chat
 
+**Code:**
 ```markdown
 [![Chat on Slack](https://img.shields.io/badge/Chat-Slack-blue.svg)](https://slack.example.com)
 [![Discord](https://img.shields.io/badge/Discord-Active-blue.svg)](https://discord.gg/example)
@@ -867,10 +950,20 @@ Here's a curated collection of practical badge examples you can copy and customi
 [![Email](https://img.shields.io/badge/Email-Contact-blue.svg)](mailto:contact@example.com)
 ```
 
+**Rendered:**
+
+[![Chat on Slack](https://img.shields.io/badge/Chat-Slack-blue.svg)]()
+[![Discord](https://img.shields.io/badge/Discord-Active-blue.svg)]()
+[![Discussions](https://img.shields.io/badge/Discussions-Welcome-blue.svg)]()
+[![Email](https://img.shields.io/badge/Email-Contact-blue.svg)]()
+
+---
+
 #### Full README Header Example
 
 Here's how to combine badges into a professional README header:
 
+**Code:**
 ```markdown
 # My Awesome Project
 
@@ -894,6 +987,22 @@ A brief, compelling description of your project.
 
 ...
 ```
+
+**Rendered:**
+
+# My Awesome Project
+
+A brief, compelling description of your project.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)]()
+[![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)]()
+[![Python: 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)]()
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
+[![Coverage: 95%](https://img.shields.io/badge/Coverage-95%25-brightgreen.svg)]()
+[![Documentation](https://img.shields.io/badge/Documentation-Available-blue.svg)]()
+[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)]()
+
+---
 
 ### Common Badge Types
 
