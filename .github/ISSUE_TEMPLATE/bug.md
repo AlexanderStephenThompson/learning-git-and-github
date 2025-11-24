@@ -1,0 +1,17 @@
+﻿name: Bug report
+about: Create a report to help us improve
+
+**Describe the bug**
+
+Steps to reproduce:
+
+1. 
+2. 
+
+**Expected behavior**
+
+**Screenshots**
+
+**Environment (please complete the following information):**
+- OS: 
+- Browser: 
