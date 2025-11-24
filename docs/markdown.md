@@ -718,6 +718,173 @@ Avoid vague link text like "click here":
 
 ---
 
+## Badges & Shields
+
+### What Are Badges?
+
+Badges (shields) are small, clickable images placed in your README that display project status at a glance. They typically show build status, version, license, language support, test coverage, and more.
+
+### Using Shields.io
+
+The most popular badge service is [Shields.io](https://shields.io). Syntax:
+
+```markdown
+https://img.shields.io/badge/LABEL-MESSAGE-COLOR
+```
+
+**Examples:**
+
+```markdown
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)
+![Python: 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
+```
+
+### Making Badges Clickable
+
+Wrap badges in link syntax:
+
+```markdown
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/user/repo/actions)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+```
+
+**Rendered:**
+
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()  
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)]()
+
+### Recommended Badges for This Repo
+
+```markdown
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)]()
+[![Docs](https://img.shields.io/badge/Docs-Complete-brightgreen.svg)](./docs/markdown.md)
+[![GitHub Pages](https://img.shields.io/badge/Pages-Live-brightgreen.svg)](https://AlexanderStephenThompson.github.io/learning-git-and-github)
+```
+
+### Common Badge Types
+
+- **License** — `https://img.shields.io/badge/License-MIT-blue.svg`
+- **Version** — `https://img.shields.io/badge/version-1.0.0-blue.svg`
+- **Status** — `https://img.shields.io/badge/Status-Active-brightgreen.svg`
+- **Language** — `https://img.shields.io/badge/language-Python-blue.svg`
+- **Platform** — `https://img.shields.io/badge/platform-Windows-blue.svg`
+
+### Badge Colors
+
+Common colors: `blue`, `green`, `brightgreen`, `red`, `orange`, `yellow`, `purple`, `ff69b4` (pink)
+
+---
+
+## GitHub Labels & Repository Organization
+
+### What Are Labels?
+
+Labels are tags for issues and pull requests. GitHub provides default labels (`bug`, `documentation`, `enhancement`, `good first issue`, etc.), but you can create custom ones.
+
+### Creating Custom Labels
+
+Via GitHub UI:
+
+1. Go to repo → **Issues** → **Labels** (right sidebar)
+2. Click **New label**
+3. Enter name (e.g., `type: bug`, `priority: high`, `scope: docs`)
+4. Choose color and add description
+5. Click **Create label**
+
+### Recommended Custom Labels
+
+**By type:**
+- `type: bug` — bug or defect
+- `type: feature` — feature request
+- `type: docs` — documentation
+- `type: question` — question
+
+**By priority:**
+- `priority: critical` — must fix immediately
+- `priority: high` — important
+- `priority: low` — nice to have
+
+**By status:**
+- `status: in-progress` — actively being worked on
+- `status: blocked` — waiting on something
+- `status: review-needed` — needs review
+
+**By scope:**
+- `scope: frontend` — frontend code
+- `scope: backend` — backend code
+- `scope: docs` — documentation
+
+### Using Labels
+
+When creating/editing an issue or PR:
+1. Click **Labels** (usually right panel)
+2. Select one or more labels
+3. Labels appear on the issue card for filtering
+
+---
+
+## Repository Metadata & Topics
+
+### Adding a Repository Description
+
+1. Go to **Settings** → **General**
+2. Under "Repository name", add **Description** (shown on repo list and GitHub search)
+3. Optionally add **Website** link
+4. Click **Save**
+
+### Adding Topics
+
+Topics help users discover your repo. Add up to 30 topics:
+
+1. Go to **Settings** → **General**
+2. Under "Topics", enter keywords (e.g., `github markdown documentation tutorial learning`)
+3. Press Enter to add each topic
+
+**Good topics for a GitHub guide repo:**
+- `github`
+- `markdown`
+- `documentation`
+- `tutorial`
+- `learning-resource`
+- `gfm` (GitHub Flavored Markdown)
+- `git`
+
+Topics appear below your repo name and are searchable on GitHub.
+
+### Repository Visibility
+
+- **Public** — visible to everyone, searchable
+- **Private** — only visible to you and collaborators
+- **Internal** — visible to your organization (GitHub Enterprise)
+
+Change in **Settings** → **General** → **Change repository visibility**.
+
+---
+
+## Repository Templates
+
+### Creating a Template Repository
+
+If you want others to use your repo structure as a starting point:
+
+1. Go to **Settings** → **General**
+2. Check **Template repository**
+3. Click **Save**
+
+Users can then click **Use this template** when viewing your repo to create a new repository with your structure.
+
+### Using a Repository Template
+
+1. Navigate to a template repository
+2. Click **Use this template** → **Create a new repository**
+3. Choose name, visibility, and click **Create**
+
+The new repo will have all your files but clean Git history.
+
+---
+
 ## Further Resources
 
 - **CommonMark Spec** — [https://spec.commonmark.org/](https://spec.commonmark.org/)
@@ -725,6 +892,8 @@ Avoid vague link text like "click here":
 - **GitHub Docs on Markdown** — [https://docs.github.com/en/get-started/writing-on-github](https://docs.github.com/en/get-started/writing-on-github)
 - **Markdown Guide** — [https://www.markdownguide.org/](https://www.markdownguide.org/)
 - **Emoji Cheatsheet** — [https://www.webfx.com/tools/emoji-cheat-sheet/](https://www.webfx.com/tools/emoji-cheat-sheet/)
+- **Shields.io** — [https://shields.io](https://shields.io) (badge generator)
+- **GitHub Labels Guide** — [https://docs.github.com/en/issues/using-labels-and-milestones](https://docs.github.com/en/issues/using-labels-and-milestones)
 
 ---
 
