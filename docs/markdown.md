@@ -13,15 +13,26 @@ Whether you're writing your first README or crafting detailed documentation, thi
 3. [Headings](#headings)
 4. [Emphasis & Text Styling](#emphasis--text-styling)
 5. [Lists](#lists)
-6. [Code](#code)
-7. [Tables](#tables)
-8. [Images & Media](#images--media)
-9. [Links & References](#links--references)
-10. [GitHub-Specific Features](#github-specific-features)
-11. [Advanced Formatting](#advanced-formatting)
-12. [Accessibility Best Practices](#accessibility-best-practices)
-13. [Troubleshooting & Tips](#troubleshooting--tips)
-14. [Quick Reference Cheatsheet](#quick-reference-cheatsheet)
+6. [Blockquotes](#blockquotes)
+7. [Code](#code)
+8. [Tables](#tables)
+9. [Images & Media](#images--media)
+10. [Links & References](#links--references)
+11. [GitHub-Specific Features](#github-specific-features)
+12. [Advanced Formatting](#advanced-formatting)
+    - [HTML & Details Elements](#html-passthrough)
+    - [Footnotes](#footnotes)
+    - [Alerts](#alerts-github-feature)
+    - [Color Models](#supported-color-models)
+    - [Section Links & Anchors](#section-links--anchors)
+    - [Relative Links](#relative-links)
+    - [Line Breaks](#line-breaks)
+13. [Mentions & References](#mentions--references)
+14. [Emojis & Special Formatting](#emojis--special-formatting)
+15. [Escaping Special Characters](#escaping-special-characters)
+16. [Accessibility Best Practices](#accessibility-best-practices)
+17. [Troubleshooting & Tips](#troubleshooting--tips)
+18. [Quick Reference Cheatsheet](#quick-reference-cheatsheet)
 
 ---
 
@@ -136,6 +147,62 @@ _italic with **bold** inside_
 **bold with _italic_ inside**  
 _italic with **bold** inside_
 
+### Strikethrough
+
+Use `~~text~~` to create strikethrough text (GitHub feature).
+
+**Example:**
+
+```markdown
+~~This text is strikethrough~~
+This text is ~~deleted~~ updated.
+```
+
+**Rendered:**
+
+~~This text is strikethrough~~
+This text is ~~deleted~~ updated.
+
+### Subscript & Superscript
+
+Use HTML tags `<sub>` and `<sup>` for subscript and superscript text.
+
+**Example:**
+
+```markdown
+H<sub>2</sub>O is water.
+
+E=mc<sup>2</sup> is Einstein's famous equation.
+
+x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>
+```
+
+**Rendered:**
+
+H<sub>2</sub>O is water.
+
+E=mc<sup>2</sup> is Einstein's famous equation.
+
+x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>
+
+### Underline
+
+Use HTML `<ins>` tag to underline text. Note: Standard Markdown doesn't have native underline syntax.
+
+**Example:**
+
+```markdown
+This is <ins>underlined text</ins>.
+
+This is <u>also underlined</u>.
+```
+
+**Rendered:**
+
+This is <ins>underlined text</ins>.
+
+This is <u>also underlined</u>.
+
 ---
 
 ## Lists
@@ -207,6 +274,77 @@ Task lists allow interactive checkboxes in issues and PRs. Use `- [ ]` for unche
 - [ ] Deploy to production
 
 **Note:** In issues and PRs, you can click to toggle checkboxes on GitHub!
+
+---
+
+## Blockquotes
+
+Create blockquotes using `>` at the start of a line. Blockquotes are commonly used for highlighting important information or quoting other sources.
+
+**Example:**
+
+```markdown
+> This is a blockquote.
+> It can span multiple lines.
+>
+> And include multiple paragraphs.
+```
+
+**Rendered:**
+
+> This is a blockquote.
+> It can span multiple lines.
+>
+> And include multiple paragraphs.
+
+### Nested Blockquotes
+
+Use `>>` to create nested blockquotes within a blockquote.
+
+**Example:**
+
+```markdown
+> This is a blockquote.
+>
+>> This is a nested blockquote inside the first one.
+>
+> Back to the first level of blockquote.
+```
+
+**Rendered:**
+
+> This is a blockquote.
+>
+>> This is a nested blockquote inside the first one.
+>
+> Back to the first level of blockquote.
+
+### Blockquotes with Other Elements
+
+Blockquotes can contain other Markdown elements like lists, code blocks, headings, and emphasis.
+
+**Example:**
+
+```markdown
+> #### Important Notice
+>
+> - **Bold statement** here
+> - _Italicized point_ here
+>
+> This is a code example:
+> ```
+> const result = true;
+> console.log(result);
+> ```
+>
+> *This blockquote contains multiple types of formatting.*
+```
+
+**Best Practices:**
+
+- Add blank lines before and after blockquotes for compatibility
+- Use blockquotes for citations, important information, or highlighted content
+- Avoid overusing blockquotes to prevent visual clutter
 
 ---
 
@@ -582,23 +720,306 @@ GitHub Markdown supports inline HTML. This is useful for features Markdown doesn
 </details>
 ```
 
-### Escaping Special Characters
+### Footnotes
 
-Use backslash `\` to escape Markdown special characters:
+GitHub supports footnotes for references and citations. Create a footnote reference with `[^1]` and define it anywhere in your document.
+
+**Example:**
 
 ```markdown
-\# This is not a heading
-\*This is not italic\*
-\[Not a link\]
+This statement needs a citation[^1].
+
+Here's more information[^2].
+
+[^1]: This is the first footnote.
+[^2]: This is the second footnote with multiple lines.
+    You can indent continuation lines with 4 spaces.
 ```
 
-**Rendered:** (shows the literal characters)
+**Rendered:** (footnotes appear at the bottom with links)
+
+**Key Points:**
+- Footnote definitions can appear anywhere in the document
+- They automatically collect at the bottom
+- Position of definition doesn't matter
+- Footnotes work in issues, PRs, and `.md` files
+
+### Alerts (GitHub Feature)
+
+GitHub supports alerts (also called callouts or admonitions) for highlighting critical information. Five alert types are available:
+
+**Example:**
+
+```markdown
+> [!NOTE]
+> Useful information that users should know, even when skimming.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent information that needs immediate user attention.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+```
+
+**Best Practices:**
+- Use alerts only when critical for user success
+- Limit to 1-2 per article to avoid overload
+- Avoid placing alerts consecutively
+- Alerts cannot be nested within other elements
+
+### Supported Color Models
+
+In issues, pull requests, and discussions, you can display color previews by wrapping color codes in backticks. Supported formats include HEX, RGB, and HSL.
+
+**Example:**
+
+```markdown
+The primary color is `#0969DA`.
+
+Use `rgb(9, 105, 218)` for the accent.
+
+Try `hsl(212, 92%, 45%)` for darker shade.
+```
+
+**Rendered:** (displays small colored circles next to codes)
+
+**Supported formats:**
+- HEX: `` `#RRGGBB` `` (e.g., `` `#FF5733` ``)
+- RGB: `` `rgb(R,G,B)` `` (e.g., `` `rgb(255, 87, 51)` ``)
+- HSL: `` `hsl(H,S,L)` `` (e.g., `` `hsl(9, 100%, 60%)` ``)
+
+**Note:** Color visualization only appears in issues, PRs, and discussions—not in `.md` files.
+
+### Section Links & Anchors
+
+#### Automatic Heading Anchors
+
+GitHub automatically creates anchor links from headings. Hover over a heading to see the link icon.
+
+**Anchor rules:**
+- Letters → lowercase
+- Spaces → hyphens
+- Punctuation → removed
+- Markup → stripped (e.g., `_italic_` becomes `italic`)
+
+**Examples:**
+- `# My Section` → `#my-section`
+- `## Advanced Topics` → `#advanced-topics`
+- `### Best Practices & Tips` → `#best-practices--tips`
+
+#### Linking to Headings
+
+```markdown
+[Jump to headings section](#headings)
+[Link to table of contents](#table-of-contents)
+[Back to top](#markdown-on-github-gfm)
+```
+
+#### Custom Anchors
+
+Create custom anchor points using HTML:
+
+```markdown
+<a name="my-custom-anchor"></a>
+
+This text has a custom anchor that you can link to directly.
+
+[Jump to custom anchor](#my-custom-anchor)
+```
+
+**Note:** Custom anchors won't appear in GitHub's automatic Table of Contents.
+
+### Relative Links
+
+Link to other files in your repository using relative paths. This is better than absolute URLs for cloning and collaboration.
+
+**Examples:**
+
+```markdown
+[Link to CONTRIBUTING](./CONTRIBUTING.md)
+[Link to docs folder](./docs/getting-started.md)
+[Link to parent folder file](../README.md)
+[Link to file on different branch](../main/README.md)
+[Link from nested folder to root](../../README.md)
+```
+
+**Best Practices:**
+- Use `./` for files in the same directory
+- Use `../` to go up one directory level
+- Use `/` at the start to reference from repository root
+- Relative links work in cloned repositories (absolute URLs don't)
+- Makes documentation portable if you move files
 
 ### Line Breaks
 
-- Two spaces at end of line: `line 1  ` (then newline)
-- `<br>` HTML tag: `line 1<br>`
-- Backslash: `line 1\` (then newline)
+There are multiple ways to create line breaks in Markdown:
+
+**Method 1: Two Trailing Spaces**
+
+```markdown
+This is line one.  
+This is line two.
+```
+
+**Method 2: Backslash**
+
+```markdown
+This is line one.\
+This is line two.
+```
+
+**Method 3: HTML Break Tag**
+
+```markdown
+This is line one.<br/>
+This is line two.
+```
+
+**Method 4: Blank Line (for paragraph breaks)**
+
+```markdown
+This is paragraph one.
+
+This is paragraph two.
+```
+
+**Best Practices:**
+- For compatibility, use trailing whitespace or `<br/>` HTML tags
+- Blank lines are better for separating paragraphs
+- Two trailing spaces or backslash creates soft line breaks
+- HTML break tag is most explicit and widely supported
+
+---
+
+## Mentions & References
+
+### Mentioning Users
+
+Mention a user with `@` followed by their username. They'll receive a notification if they have repository access.
+
+```markdown
+@AlexanderStephenThompson What do you think about this approach?
+
+Reviewers: @myorg/team-name
+```
+
+**Note:** Users must have read access to the repository to be notified.
+
+### Mentioning Teams
+
+Teams within organizations can be mentioned the same way:
+
+```markdown
+@myorg/backend-team
+@myorg/frontend-team
+```
+
+### Referencing Issues & Pull Requests
+
+Reference issues or PRs to link them and trigger automation:
+
+```markdown
+#123 — references issue 123
+#456 — references pull request 456
+Fixes #789 — closes issue 789 when merged
+Closes #123 — closes issue 123 when merged
+Resolves #456 — resolves PR 456 when merged
+```
+
+**Automation Keywords:**
+- `close`, `closes`, `closed`
+- `fix`, `fixes`, `fixed`
+- `resolve`, `resolves`, `resolved`
+
+These keywords automatically close the referenced issue when the PR is merged.
+
+### Commit SHA References
+
+Reference specific commits by their SHA:
+
+```markdown
+This was fixed in 8f5c7d2.
+See commit e0c2b7e8f for details.
+```
+
+---
+
+## Emojis & Special Formatting
+
+### Using Emoji
+
+Add emojis using the `:emoji-name:` shortcode syntax. GitHub supports hundreds of emoji codes.
+
+**Example:**
+
+```markdown
+:+1: Great job!
+:tada: Celebration!
+:bug: Found a bug
+:rocket: Launch time!
+:warning: Warning
+:information_source: Information
+:white_check_mark: Done
+:x: Failed
+:books: Documentation
+:lock: Security
+:eyes: Review needed
+:heart: Love
+```
+
+**Tip:** Start typing `:` in GitHub's web interface to get autocomplete suggestions.
+
+### HTML Comments
+
+Use HTML comments to add notes that won't appear in rendered Markdown:
+
+```markdown
+<!-- This is a comment that won't show up -->
+
+<!-- 
+Multi-line comments work too.
+You can write internal notes here for other contributors.
+This is perfect for TODOs or explanations.
+-->
+```
+
+**Use cases:**
+- Leaving notes for future edits
+- Hiding sections during development
+- Adding internal documentation
+- Tracking TODOs
+
+---
+
+## Escaping Special Characters
+
+Use backslash `\` to escape Markdown formatting characters:
+
+```markdown
+\*This won't be italic\*
+\#This won't be a heading
+\[This won't be a link\]
+\`This won't be code\`
+```
+
+**Rendered:**
+
+\*This won't be italic\*
+\#This won't be a heading
+\[This won't be a link\]
+\`This won't be code\`
+
+**Escapable characters:**
+
+`\` `` ` `` `*` `_` `{}` `[]` `<>` `()` `#` `+` `-` `.` `!` `|`
+
+Use backslash escaping when you need to display special characters literally.
 
 ---
 
