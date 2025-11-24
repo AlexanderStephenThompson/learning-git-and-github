@@ -763,6 +763,138 @@ Wrap badges in link syntax:
 [![GitHub Pages](https://img.shields.io/badge/Pages-Live-brightgreen.svg)](https://AlexanderStephenThompson.github.io/learning-git-and-github)
 ```
 
+### Badge Gallery & Practical Examples
+
+Here's a curated collection of practical badge examples you can copy and customize:
+
+#### Project Status & Maintenance
+
+```markdown
+[![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)]()
+[![Status: Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/user/repo)
+[![Status: Deprecated](https://img.shields.io/badge/Status-Deprecated-red.svg)]()
+[![Status: Beta](https://img.shields.io/badge/Status-Beta-orange.svg)]()
+[![Status: Stable](https://img.shields.io/badge/Status-Stable-brightgreen.svg)]()
+```
+
+#### License Badges
+
+```markdown
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-orange.svg)](LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-red.svg)](LICENSE)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg)](LICENSE)
+```
+
+#### Version & Release Badges
+
+```markdown
+[![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-blue.svg)](https://github.com/user/repo/releases)
+[![Latest Release](https://img.shields.io/badge/Latest%20Release-v2.5.1-blue.svg)](https://github.com/user/repo/releases/latest)
+[![Release Date](https://img.shields.io/badge/Release%20Date-Nov%202025-blue.svg)]()
+```
+
+#### Language & Framework Badges
+
+```markdown
+[![Python: 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![Node.js: 14+](https://img.shields.io/badge/Node.js-14%2B-green.svg)](https://nodejs.org/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-yellow.svg)]()
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0%2B-blue.svg)]()
+[![Go 1.19+](https://img.shields.io/badge/Go-1.19%2B-cyan.svg)]()
+```
+
+#### Platform & OS Badges
+
+```markdown
+[![Platform: Windows](https://img.shields.io/badge/Platform-Windows-blue.svg)]()
+[![Platform: macOS](https://img.shields.io/badge/Platform-macOS-silver.svg)]()
+[![Platform: Linux](https://img.shields.io/badge/Platform-Linux-orange.svg)]()
+[![Cross-Platform](https://img.shields.io/badge/Cross%20Platform-Yes-brightgreen.svg)]()
+```
+
+#### Build & CI/CD Badges
+
+```markdown
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](https://github.com/user/repo/actions)
+[![Build Status](https://img.shields.io/badge/Build-Failing-red.svg)](https://github.com/user/repo/actions)
+[![Tests: 42/42 Passing](https://img.shields.io/badge/Tests-42%2F42%20passing-brightgreen.svg)]()
+[![Coverage: 95%](https://img.shields.io/badge/Coverage-95%25-brightgreen.svg)]()
+```
+
+#### Documentation & Links
+
+```markdown
+[![Documentation](https://img.shields.io/badge/Documentation-Available-blue.svg)](./docs/)
+[![Wiki](https://img.shields.io/badge/Wiki-Complete-blue.svg)](./wiki/)
+[![API Docs](https://img.shields.io/badge/API%20Docs-Live-blue.svg)](https://docs.example.com)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Active-brightgreen.svg)](https://user.github.io/repo/)
+```
+
+#### Contribution & Community
+
+```markdown
+[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Good First Issue](https://img.shields.io/badge/Good%20First%20Issue-Available-brightgreen.svg)](https://github.com/user/repo/issues?q=label%3A%22good+first+issue%22)
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Open Issues](https://img.shields.io/badge/Open%20Issues-5-blue.svg)](https://github.com/user/repo/issues)
+```
+
+#### Downloads & Social
+
+```markdown
+[![GitHub Stars](https://img.shields.io/github/stars/user/repo.svg?style=social)](https://github.com/user/repo)
+[![GitHub Issues](https://img.shields.io/github/issues/user/repo.svg)](https://github.com/user/repo/issues)
+[![Downloads](https://img.shields.io/badge/Downloads-10%2C000%2B-brightgreen.svg)]()
+[![Docker Pulls](https://img.shields.io/badge/Docker%20Pulls-50%2C000%2B-blue.svg)]()
+```
+
+#### Development Status
+
+```markdown
+[![Development: Active](https://img.shields.io/badge/Development-Active-brightgreen.svg)]()
+[![Last Commit: 2 days ago](https://img.shields.io/badge/Last%20Commit-2%20days%20ago-blue.svg)]()
+[![Last Updated: Nov 2025](https://img.shields.io/badge/Last%20Updated-Nov%202025-blue.svg)]()
+[![Code Quality: Good](https://img.shields.io/badge/Code%20Quality-Good-brightgreen.svg)]()
+```
+
+#### Support & Chat
+
+```markdown
+[![Chat on Slack](https://img.shields.io/badge/Chat-Slack-blue.svg)](https://slack.example.com)
+[![Discord](https://img.shields.io/badge/Discord-Active-blue.svg)](https://discord.gg/example)
+[![Discussions](https://img.shields.io/badge/Discussions-Welcome-blue.svg)](https://github.com/user/repo/discussions)
+[![Email](https://img.shields.io/badge/Email-Contact-blue.svg)](mailto:contact@example.com)
+```
+
+#### Full README Header Example
+
+Here's how to combine badges into a professional README header:
+
+```markdown
+# My Awesome Project
+
+A brief, compelling description of your project.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)]()
+[![Python: 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](https://github.com/user/repo/actions)
+[![Coverage: 95%](https://img.shields.io/badge/Coverage-95%25-brightgreen.svg)]()
+[![Documentation](https://img.shields.io/badge/Documentation-Available-blue.svg)](./docs/)
+[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](CONTRIBUTING.md)
+
+## Features
+
+- Feature 1
+- Feature 2
+- Feature 3
+
+## Quick Start
+
+...
+```
+
 ### Common Badge Types
 
 - **License** — `https://img.shields.io/badge/License-MIT-blue.svg`
@@ -774,6 +906,14 @@ Wrap badges in link syntax:
 ### Badge Colors
 
 Common colors: `blue`, `green`, `brightgreen`, `red`, `orange`, `yellow`, `purple`, `ff69b4` (pink)
+
+**Color meanings:**
+- `brightgreen` / `green` — success, passing, active
+- `blue` — information, neutral
+- `orange` — warning, beta, in development
+- `red` — failure, critical, deprecated
+- `yellow` — caution
+- `purple` / `ff69b4` — special, custom
 
 ---
 
