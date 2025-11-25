@@ -1,7 +1,8 @@
 # Dependencies
 node_modules/
 
-# Package lock files (optional, depending on project needs)
+# Package files (if not used in project)
+package.json
 package-lock.json
 
 # OS files
