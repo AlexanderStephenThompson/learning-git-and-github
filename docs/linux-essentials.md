@@ -228,8 +228,11 @@ rm -i file.txt
 # Remove directory recursively
 rm -r directory/
 
-# Force remove (no confirmation, careful!)
+# Force remove (no confirmation)
 rm -rf directory/
+# ⚠️ WARNING: rm -rf is extremely dangerous! It permanently deletes
+# files without confirmation and cannot be undone. Always double-check
+# the path before running. Consider using trash-cli for safer deletion.
 
 # Remove empty directory
 rmdir empty-directory/
@@ -537,6 +540,9 @@ dnf list installed
 sudo apt install git
 
 # Node.js (via NodeSource)
+# Note: Always review scripts before piping to bash. Download first with:
+# curl -fsSL https://deb.nodesource.com/setup_lts.x -o setup_node.sh
+# Then inspect and run: sudo -E bash setup_node.sh
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt install nodejs
 
