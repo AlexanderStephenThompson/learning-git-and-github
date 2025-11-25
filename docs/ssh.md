@@ -307,14 +307,15 @@ For graphical access to remote systems:
 
 ### VNC (Virtual Network Computing)
 
-```bash
-# Install VNC server (Linux)
-sudo apt install tightvncserver
+VNC clients like TightVNC or RealVNC can connect to remote VNC servers:
 
-# Start VNC server
-vncserver :1
+1. Download and install a VNC client (e.g., TightVNC Viewer)
+2. Enter the server address (e.g., hostname:5901)
+3. Enter the VNC password when prompted
 
-# Connect via SSH tunnel (secure)
+**For secure connections:** Use SSH tunneling before connecting with VNC:
+
+```powershell
 ssh -L 5901:localhost:5901 username@hostname
 # Then connect VNC client to localhost:5901
 ```

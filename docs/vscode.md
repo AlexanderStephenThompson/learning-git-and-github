@@ -28,7 +28,6 @@ Visual Studio Code (VS Code) is a free, open-source code editor developed by Mic
 - Integrated terminal
 - Debugging support
 - Extensive extension marketplace
-- Cross-platform (Windows, macOS, Linux)
 
 ---
 
