@@ -118,6 +118,80 @@ git checkout origin/feature/my-new-feature
 
 ---
 
+## Visualizing Git Branch Actions
+
+Below are diagrams using markdown code blocks to illustrate common git branch actions:
+
+---
+
+### 1. Creating and Merging a Feature Branch
+
+```mermaid
+gitGraph
+   commit id: "Start"
+   branch feature
+   commit id: "Work on feature"
+   checkout main
+   commit id: "Main work"
+   merge feature
+```
+
+---
+
+### 2. Deleting a Branch After Merge
+
+```mermaid
+gitGraph
+   commit id: "Start"
+   branch feature
+   commit id: "Feature work"
+   checkout main
+   commit id: "Main work"
+   merge feature
+   delete feature
+```
+
+---
+
+### 3. Multiple Feature Branches and Merges
+
+```mermaid
+gitGraph
+   commit id: "Start"
+   branch feature1
+   commit id: "Feature 1 work"
+   checkout main
+   branch feature2
+   commit id: "Feature 2 work"
+   checkout main
+   commit id: "Main work"
+   merge feature1
+   merge feature2
+   delete feature1
+   delete feature2
+```
+
+---
+
+### 4. Rebasing a Feature Branch
+
+```mermaid
+gitGraph
+   commit id: "Start"
+   branch feature
+   commit id: "Feature work"
+   checkout main
+   commit id: "Main work"
+   checkout feature
+   commit id: "Rebase feature onto main"
+```
+
+---
+
+> **Note:** These diagrams use [Mermaid](https://mermaid-js.github.io/mermaid/#/) syntax, which is supported in GitHub markdown files and many markdown editors. If you view this file on GitHub, the diagrams may not render natively, but you can use a Mermaid-enabled editor or VS Code extension for visualization.
+
+---
+
 ## Further Reading
 - [Git Branching Documentation](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
 - [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow)
