@@ -59,24 +59,14 @@ The OS manages hardware resources and provides services for programs:
 - **Device drivers:** Hardware communication
 - **User interface:** GUI or CLI
 
-### Common Operating Systems
+### Windows
 
-| OS | Use Case |
-|-----|----------|
-| **Windows** | Desktop, gaming, enterprise |
-| **macOS** | Desktop, creative work |
-| **Linux** | Servers, development, customization |
-| **Android/iOS** | Mobile devices |
+Windows is the most common desktop operating system, used for:
 
-### Linux Distributions
-
-| Distribution | Characteristics |
-|--------------|-----------------|
-| **Ubuntu** | User-friendly, popular |
-| **Debian** | Stable, conservative |
-| **CentOS/Rocky** | Enterprise, server-focused |
-| **Arch** | Minimal, customizable |
-| **Fedora** | Cutting-edge, Red Hat-based |
+- Desktop computing
+- Gaming
+- Enterprise environments
+- Development
 
 ---
 
@@ -298,76 +288,55 @@ HTTPS encrypts web traffic:
 
 ### Connectivity Testing
 
-```bash
+```powershell
 # Check if host is reachable
 ping google.com
-ping -c 4 google.com  # 4 pings only
+ping -n 4 google.com  # 4 pings only
 
 # Trace route to host
-traceroute google.com  # Linux/macOS
-tracert google.com     # Windows
+tracert google.com
 ```
 
 ### DNS Lookup
 
-```bash
+```powershell
 # Basic lookup
 nslookup google.com
-dig google.com
-
-# Specific record types
-dig google.com MX
-dig google.com TXT
-
-# Reverse lookup
-dig -x 8.8.8.8
 ```
 
 ### Network Information
 
-```bash
+```powershell
 # Show IP configuration
-ip addr          # Linux
-ifconfig         # macOS/older Linux
-ipconfig         # Windows
+ipconfig
+ipconfig /all  # Detailed information
 
 # Show routing table
-ip route         # Linux
-netstat -rn      # macOS
-route print      # Windows
+route print
 
 # Show active connections
-netstat -tuln    # Linux: listening ports
-ss -tuln         # Modern Linux
-lsof -i :80      # What's using port 80
+netstat -an    # All connections
+netstat -b     # Show process names (requires admin)
 ```
 
 ### Testing Ports
 
-```bash
-# Check if port is open
-nc -zv hostname 80
-telnet hostname 80
+```powershell
+# Check if port is open using PowerShell
+Test-NetConnection hostname -Port 80
 
-# Scan ports
-nmap hostname
-nmap -p 80,443 hostname
+# Or using telnet (if enabled)
+telnet hostname 80
 ```
 
 ### Download and Transfer
 
-```bash
-# Download file
-curl -O https://example.com/file.zip
-wget https://example.com/file.zip
+```powershell
+# Download file using PowerShell
+Invoke-WebRequest -Uri https://example.com/file.zip -OutFile file.zip
 
 # Test HTTP endpoint
-curl -I https://example.com  # Headers only
-curl https://api.example.com/data
-
-# Transfer files
-scp file.txt user@host:/path/
-rsync -avz folder/ user@host:/path/
+Invoke-WebRequest -Uri https://example.com -Method Head
 ```
 
 ---
@@ -434,29 +403,22 @@ Cloud computing provides on-demand computing resources over the internet.
 
 ### Essential Commands Cheatsheet
 
-```bash
+```powershell
 # Network info
-ip addr                    # Show IP addresses
-ip route                   # Show routes
-cat /etc/resolv.conf       # Show DNS servers
+ipconfig                   # Show IP addresses
+ipconfig /all              # Detailed network info
+route print                # Show routes
 
 # Connectivity
-ping -c 4 host             # Test connectivity
-traceroute host            # Trace route
+ping -n 4 host             # Test connectivity
+tracert host               # Trace route
 
 # DNS
-dig domain                 # DNS lookup
-nslookup domain           # Alternative lookup
+nslookup domain            # DNS lookup
 
 # Ports/Services
-ss -tuln                   # Show listening ports
-lsof -i :port             # What's on port
-nc -zv host port          # Test port
-
-# Processes
-ps aux                     # List processes
-systemctl status service   # Service status
-journalctl -u service     # Service logs
+netstat -an                # Show all connections
+Test-NetConnection host -Port port  # Test port
 ```
 
 ---
@@ -464,7 +426,7 @@ journalctl -u service     # Service logs
 ## Further Resources
 
 - **Networking Fundamentals:** [networklessons.com](https://networklessons.com/)
-- **Linux System Administration:** [linuxjourney.com](https://linuxjourney.com/)
+- **Windows Networking:** [docs.microsoft.com/windows-server/networking](https://docs.microsoft.com/en-us/windows-server/networking/)
 - **Cloud Computing Basics:** [aws.amazon.com/getting-started](https://aws.amazon.com/getting-started/)
 - **DNS Explained:** [howdns.works](https://howdns.works/)
 - **Security Best Practices:** [owasp.org](https://owasp.org/)

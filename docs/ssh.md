@@ -47,21 +47,6 @@ Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 
 **Alternatively:** Install [Git for Windows](https://git-scm.com/download/win) which includes SSH.
 
-### macOS
-
-SSH is pre-installed. Open Terminal to use.
-
-### Linux
-
-```bash
-# Ubuntu/Debian
-sudo apt update
-sudo apt install openssh-client
-
-# For SSH server
-sudo apt install openssh-server
-```
-
 ---
 
 ## Basic SSH Usage
@@ -145,16 +130,11 @@ cat ~/.ssh/id_rsa.pub | ssh username@hostname "mkdir -p ~/.ssh && cat >> ~/.ssh/
 
 ### Using SSH Keys with GitHub
 
-```bash
-# Copy public key to clipboard
-# Windows
-clip < ~/.ssh/id_ed25519.pub
-
-# macOS
-pbcopy < ~/.ssh/id_ed25519.pub
-
-# Linux
-xclip -selection clipboard < ~/.ssh/id_ed25519.pub
+```powershell
+# Copy public key to clipboard (Windows)
+Get-Content ~/.ssh/id_ed25519.pub | Set-Clipboard
+# Or using clip
+type ~/.ssh/id_ed25519.pub | clip
 ```
 
 Then add the key in GitHub: Settings → SSH and GPG keys → New SSH key.
@@ -324,15 +304,6 @@ For graphical access to remote systems:
 1. Open "Remote Desktop Connection"
 2. Enter computer name or IP
 3. Click Connect
-
-**Connect from macOS/Linux:**
-
-```bash
-# Install Remmina (Linux)
-sudo apt install remmina remmina-plugin-rdp
-
-# Or use Microsoft Remote Desktop (macOS)
-```
 
 ### VNC (Virtual Network Computing)
 

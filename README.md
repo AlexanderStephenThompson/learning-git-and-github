@@ -1,12 +1,12 @@
 # Learning Git and GitHub
 
-A comprehensive guide to becoming a power user: master Git, GitHub, command line, VS Code, Docker, SSH, networking, and more. Everything you need to work efficiently as a developer in one place.
+A comprehensive guide to becoming a power user on Windows: master Git, GitHub, command line, VS Code, Docker, SSH, networking, and more. Everything you need to work efficiently as a developer in one place.
 
 ## Quick Start
 
 - **New to GitHub?** Start with [`docs/getting-started.md`](docs/getting-started.md) — step-by-step guide to creating and pushing your first repository.
 - **Learn Markdown on GitHub** Read [`docs/markdown.md`](docs/markdown.md) — comprehensive guide to GFM syntax with practical examples.
-- **New to the command line?** Check [`docs/cli-basics.md`](docs/cli-basics.md) — terminal essentials for any OS.
+- **New to the command line?** Check [`docs/cli-basics.md`](docs/cli-basics.md) — terminal essentials for Windows.
 - **Want to contribute?** See [`CONTRIBUTING.md`](CONTRIBUTING.md) for guidelines and workflow.
 
 ## What's Inside
@@ -20,8 +20,8 @@ A comprehensive guide to becoming a power user: master Git, GitHub, command line
 
 - **[`docs/vscode.md`](docs/vscode.md)** — Visual Studio Code setup, extensions, and productivity tips
 - **[`docs/docker.md`](docs/docker.md)** — Docker basics, containers, images, and Docker Compose
-- **[`docs/cli-basics.md`](docs/cli-basics.md)** — Command line essentials for PowerShell and Bash
-- **[`docs/keyboard-shortcuts.md`](docs/keyboard-shortcuts.md)** — Essential shortcuts for OS, browser, terminal, and VS Code
+- **[`docs/cli-basics.md`](docs/cli-basics.md)** — Command line essentials for PowerShell
+- **[`docs/keyboard-shortcuts.md`](docs/keyboard-shortcuts.md)** — Essential shortcuts for Windows, browser, terminal, and VS Code
 
 ### System & Networking
 
@@ -63,8 +63,8 @@ A comprehensive guide to becoming a power user: master Git, GitHub, command line
 - Visual Studio Code setup and customization
 - Essential VS Code extensions
 - Docker containerization basics
-- Command line proficiency (PowerShell and Bash)
-- Keyboard shortcuts for productivity
+- Command line proficiency (PowerShell)
+- Keyboard shortcuts for Windows productivity
 
 ### Infrastructure & Networking
 
