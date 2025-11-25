@@ -56,39 +56,6 @@ Docker is a platform that uses containerization to package applications and thei
 3. Enable WSL 2 if prompted
 4. Start Docker Desktop
 
-### macOS
-
-1. Download [Docker Desktop](https://www.docker.com/products/docker-desktop)
-2. Open `.dmg` and drag to Applications
-3. Start Docker from Applications
-
-### Linux (Ubuntu/Debian)
-
-```bash
-# Update package index
-sudo apt update
-
-# Install dependencies
-sudo apt install ca-certificates curl gnupg
-
-# Add Docker's official GPG key
-sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-
-# Set up repository
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-# Install Docker
-sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-
-# Add user to docker group (optional, avoids using sudo)
-sudo usermod -aG docker $USER
-```
-
 ### Verify Installation
 
 ```bash

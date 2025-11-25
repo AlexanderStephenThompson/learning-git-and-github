@@ -47,21 +47,6 @@ Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 
 **Alternatively:** Install [Git for Windows](https://git-scm.com/download/win) which includes SSH.
 
-### macOS
-
-SSH is pre-installed. Open Terminal to use.
-
-### Linux
-
-```bash
-# Ubuntu/Debian
-sudo apt update
-sudo apt install openssh-client
-
-# For SSH server
-sudo apt install openssh-server
-```
-
 ---
 
 ## Basic SSH Usage
@@ -145,16 +130,11 @@ cat ~/.ssh/id_rsa.pub | ssh username@hostname "mkdir -p ~/.ssh && cat >> ~/.ssh/
 
 ### Using SSH Keys with GitHub
 
-```bash
-# Copy public key to clipboard
-# Windows
-clip < ~/.ssh/id_ed25519.pub
-
-# macOS
-pbcopy < ~/.ssh/id_ed25519.pub
-
-# Linux
-xclip -selection clipboard < ~/.ssh/id_ed25519.pub
+```powershell
+# Copy public key to clipboard (Windows)
+Get-Content ~/.ssh/id_ed25519.pub | Set-Clipboard
+# Or using clip
+type ~/.ssh/id_ed25519.pub | clip
 ```
 
 Then add the key in GitHub: Settings → SSH and GPG keys → New SSH key.
@@ -325,25 +305,17 @@ For graphical access to remote systems:
 2. Enter computer name or IP
 3. Click Connect
 
-**Connect from macOS/Linux:**
-
-```bash
-# Install Remmina (Linux)
-sudo apt install remmina remmina-plugin-rdp
-
-# Or use Microsoft Remote Desktop (macOS)
-```
-
 ### VNC (Virtual Network Computing)
 
-```bash
-# Install VNC server (Linux)
-sudo apt install tightvncserver
+VNC clients like TightVNC or RealVNC can connect to remote VNC servers:
 
-# Start VNC server
-vncserver :1
+1. Download and install a VNC client (e.g., TightVNC Viewer)
+2. Enter the server address (e.g., hostname:5901)
+3. Enter the VNC password when prompted
 
-# Connect via SSH tunnel (secure)
+**For secure connections:** Use SSH tunneling before connecting with VNC:
+
+```powershell
 ssh -L 5901:localhost:5901 username@hostname
 # Then connect VNC client to localhost:5901
 ```

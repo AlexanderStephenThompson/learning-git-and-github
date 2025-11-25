@@ -65,7 +65,7 @@ GitHub Copilot is an AI-powered code completion tool that suggests code and enti
 
 **For VS Code:**
 1. Open VS Code
-2. Go to Extensions (`Ctrl+Shift+X` or `Cmd+Shift+X`)
+2. Go to Extensions (`Ctrl+Shift+X`)
 3. Search for "GitHub Copilot"
 4. Click **Install**
 5. Sign in with your GitHub account when prompted
@@ -92,7 +92,7 @@ Copilot provides suggestions as you type. Gray text appears showing the suggesti
 
 **Accept a suggestion:**
 - Press `Tab` to accept the entire suggestion
-- Press `Ctrl+→` (or `Cmd+→`) to accept word by word
+- Press `Ctrl+→` to accept word by word
 
 **See alternative suggestions:**
 - Press `Alt+]` to cycle to next suggestion
@@ -124,7 +124,7 @@ Copilot will suggest parameters and implementation.
 ### Multiple Suggestions
 
 Open the suggestions panel:
-- Press `Ctrl+Enter` (or `Cmd+Enter`) to see up to 10 alternatives
+- Press `Ctrl+Enter` to see up to 10 alternatives
 - Click on any suggestion to insert it
 
 ---
@@ -137,7 +137,7 @@ Copilot Chat provides conversational AI assistance directly in your IDE.
 
 **VS Code:**
 - Click the chat icon in the sidebar
-- Press `Ctrl+Shift+I` (or `Cmd+Shift+I`)
+- Press `Ctrl+Shift+I`
 - Or use Command Palette: "GitHub Copilot: Open Chat"
 
 ### Chat Features
@@ -267,7 +267,7 @@ What's the difference between map and forEach?
 
 Start inline chat directly in your editor:
 1. Select code
-2. Press `Ctrl+I` (or `Cmd+I`)
+2. Press `Ctrl+I`
 3. Type your request
 4. Copilot edits code inline
 
@@ -296,15 +296,15 @@ Copilot uses your entire workspace for context:
 
 ### 1. Keyboard Shortcuts Reference
 
-| Action | Windows/Linux | macOS |
-|--------|--------------|-------|
-| Accept suggestion | `Tab` | `Tab` |
-| Dismiss suggestion | `Esc` | `Esc` |
-| Next suggestion | `Alt+]` | `Option+]` |
-| Previous suggestion | `Alt+[` | `Option+[` |
-| Show alternatives | `Ctrl+Enter` | `Cmd+Enter` |
-| Open Chat | `Ctrl+Shift+I` | `Cmd+Shift+I` |
-| Inline Chat | `Ctrl+I` | `Cmd+I` |
+| Action | Windows |
+|--------|---------|
+| Accept suggestion | `Tab` |
+| Dismiss suggestion | `Esc` |
+| Next suggestion | `Alt+]` |
+| Previous suggestion | `Alt+[` |
+| Show alternatives | `Ctrl+Enter` |
+| Open Chat | `Ctrl+Shift+I` |
+| Inline Chat | `Ctrl+I` |
 
 ### 2. Multi-Language Support
 

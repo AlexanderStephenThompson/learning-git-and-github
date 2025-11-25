@@ -28,7 +28,6 @@ Visual Studio Code (VS Code) is a free, open-source code editor developed by Mic
 - Integrated terminal
 - Debugging support
 - Extensive extension marketplace
-- Cross-platform (Windows, macOS, Linux)
 
 ---
 
@@ -40,24 +39,6 @@ Visual Studio Code (VS Code) is a free, open-source code editor developed by Mic
 2. Run the installer
 3. Follow the setup wizard
 4. Optionally add "Open with Code" to context menu
-
-**macOS:**
-
-1. Download from [code.visualstudio.com](https://code.visualstudio.com/)
-2. Open the `.dmg` file
-3. Drag VS Code to Applications
-4. Optionally add to PATH via Command Palette (`Shell Command: Install 'code' command in PATH`)
-
-**Linux:**
-
-```bash
-# Ubuntu/Debian
-sudo apt update
-sudo apt install code
-
-# Or download .deb from website
-sudo dpkg -i code_*.deb
-```
 
 ---
 
@@ -75,7 +56,7 @@ sudo dpkg -i code_*.deb
 
 ### Command Palette
 
-Access all commands with `Ctrl + Shift + P` (Windows/Linux) or `Cmd + Shift + P` (macOS).
+Access all commands with `Ctrl + Shift + P`.
 
 ---
 
@@ -286,7 +267,7 @@ Create `.vscode/settings.json` in your project for project-specific settings:
 ## Further Resources
 
 - **Official Documentation:** [code.visualstudio.com/docs](https://code.visualstudio.com/docs)
-- **Keyboard Shortcuts PDF:** [Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf) | [macOS](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) | [Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+- **Keyboard Shortcuts PDF:** [Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 - **VS Code Tips and Tricks:** [code.visualstudio.com/docs/getstarted/tips-and-tricks](https://code.visualstudio.com/docs/getstarted/tips-and-tricks)
 - **Extension Marketplace:** [marketplace.visualstudio.com](https://marketplace.visualstudio.com/vscode)
 
