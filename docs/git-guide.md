@@ -163,15 +163,10 @@ gitGraph LR:
   checkout develop
   commit id: "dev-2"
   merge feature/ui
-  branch release/1.0.0
-  checkout release/1.0.0
-  commit id: "stabilize"
-  checkout develop
-  merge release/1.0.0
   checkout main
-  merge release/1.0.0 tag: "v1.0.0"
+  merge develop tag: "v1.0.0"
 ```
-This mirrors a classic GitFlow-style picture: `main` stays stable, `develop` carries integrated work, features branch off and merge back, a release branch stabilizes, and `main` gets the tagged release.
+This mirrors a classic GitFlow-style picture (without a dedicated release branch): `main` stays stable, `develop` carries integrated work, features branch off and merge back, and `main` gets the tagged release.
 
 ---
 
