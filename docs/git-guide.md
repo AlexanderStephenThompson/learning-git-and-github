@@ -1,6 +1,10 @@
 # GitHub Guide for Solo Developers
 
-This is a practical reference + do-along guide to help a solo developer work confidently on GitHub: plan projects, use issues, branch well, open/merge pull requests, release, and automate. Each section has quick references and short walkthroughs you can repeat.
+GitHub can feel like a maze when you are on your own: repos, issues, branches, pull requests, actions, releases. This guide turns that maze into a well-lit path. It mixes short reference bites with do-along steps so you can ship without second-guessing your workflow.
+
+Think of this as your “operating manual” for a solo project. You will learn how to plan work with issues, keep branches tidy, write PRs that are easy to review (even if you are the reviewer), and ship with confidence using tags and automation. Each section is written to be skimmed quickly and then used verbatim when you are at the keyboard.
+
+Bookmark it, and reuse the commands and checklists whenever you start a new task. The more you repeat the steps, the more automatic your GitHub flow becomes.
 
 ---
 
@@ -90,13 +94,16 @@ git push origin --delete feature/short-task-name
 ---
 
 ## Issues: tracking work
+Issues are your lightweight project manager. They capture intent before code exists, and they keep future-you honest about why a change happened. Treat them as the conversation starter and record of decisions: when someone asks “why did we do this?” you point to the issue.
+
+**What is an issue?** A single ticket that describes work to be done (feature, bug, question, chore). It is the source of truth for context, decisions, and acceptance criteria. No code changes live here—only discussion and state.
+
 **When to open an issue:** new feature, bug, question, chore, or decision to document.
 
-**Write great issues**
-- Title: problem or goal first, outcome oriented.
-- Body: context (why), expected vs. actual (for bugs), acceptance criteria, reproduction steps, logs/screenshots if relevant.
-- Labels: `bug`, `feature`, `docs`, `chore`, `priority:P1/P2/P3`.
-- Assignees/milestone: helps prioritization.
+**Best practices**
+- One problem per issue; avoid mixed scopes.
+- Describe the user impact first; add context, expected vs. actual, and acceptance criteria.
+- Use labels for type and priority; assign an owner; link to PRs that implement it.
 
 **Quick issue template (copy/paste)**
 ```
@@ -122,14 +129,16 @@ Links, decisions, screenshots.
 ---
 
 ## Pull requests: clean reviews and merges
-**Open a PR**
-- Keep PRs small (ideally < 300 lines changed) and scoped to one thing.
-- Title format: `[type]: summary` (e.g., `feat: add search filters`).
-- Description checklist:
-  - What/why: 2-3 sentences.
-  - How tested: commands or screenshots.
-  - Risks/rollback plan.
-  - Links: issue numbers, design docs.
+Pull requests are where your work meets scrutiny—even if you are reviewing yourself. A good PR makes the change obvious, the risk visible, and the rollback clear. Think of it as a narrated tour of the diff: here’s what changed, why it’s safe, and how we know it works.
+
+**What is a pull request?** A request to merge one branch into another (usually feature → main). It is the review and safety gate: discussion, checks (tests/lint), approvals, and merge strategy.
+
+**Best practices**
+- Scope: one issue/feature per PR; keep it small (< ~300 changed lines) for fast review.
+- Title: `[type]: summary` (e.g., `feat: add search filters`).
+- Description: what/why, how tested, risks/rollback, links to issues/design.
+- Tests: show commands or screenshots; ensure CI passes before merging.
+- History: prefer squash merge for tidy history; keep branch up to date with main.
 
 **Do-along: open and merge a PR (solo workflow)**
 1) Create branch and commit (from the daily workflow).
@@ -138,14 +147,14 @@ Links, decisions, screenshots.
 ```bash
 gh pr create --title "feat: clear wording" --body "Why/what/how tested" --base main --head feature/clear-wording
 ```
-   Or use GitHub UI: Compare & pull request → fill template.
+  Or use GitHub UI: Compare & pull request → fill template.
 4) Self-review: read the diff, add comments, ensure tests run.
-5) Merge strategy: prefer **Squash and merge** for tidy history; ensure branch is up-to-date.
+5) Merge strategy: prefer **Squash and merge** for tidy history; ensure branch is current with main.
 6) After merge: delete branch locally/remotely (commands in daily workflow).
 
 **Keep history clean**
 - Rebase small PRs to catch up: `git pull --rebase origin main` while on your branch.
-- Avoid force pushes to shared branches; for solo work, force push is fine after rebase.
+- Avoid force pushes to shared branches; for solo work, force push is acceptable after rebase.
 
 ---
 
