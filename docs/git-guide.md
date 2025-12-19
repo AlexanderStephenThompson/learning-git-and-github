@@ -147,7 +147,7 @@ git push origin --delete new-branch   # Delete remote branch
 
 **Branching flow (visual)**
 ```mermaid
-gitGraph
+gitGraph LR
   commit id: "main"
   branch develop
   checkout develop
@@ -164,9 +164,8 @@ gitGraph
   merge release/1.0.0
   checkout main
   merge release/1.0.0
-  tag: "v1.0.0"
 ```
-This shows a lightweight GitFlow: feature branches merge into `develop`, release branches stabilize, and `main` gets tagged on release. Open this file on GitHub or a Mermaid-capable viewer to render.
+This shows a lightweight GitFlow: feature branches merge into `develop`, release branches stabilize, and `main` gets tagged on release (tag not drawn). Open this file on GitHub or a Mermaid-capable viewer to render.
 
 ---
 
