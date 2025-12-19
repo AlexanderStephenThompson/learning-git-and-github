@@ -147,25 +147,69 @@ git push origin --delete new-branch   # Delete remote branch
 
 **Branching flow (visual)**
 ```mermaid
-gitGraph LR:
-  commit id: "main"
-  branch develop
-  checkout develop
-  commit id: "dev work"
-  branch feature/cool-thing
-  checkout feature/cool-thing
-  commit id: "feature work" tag: "v1.0.0"
-  checkout develop
-  merge feature/cool-thing
-  branch release/1.0.0
-  checkout release/1.0.0
-  commit id: "stabilize"
-  checkout develop
-  merge release/1.0.0
-  checkout main
-  merge release/1.0.0
+flowchart LR
+  %% Lanes
+  subgraph Main
+    M0((main)):::main
+    M1(( )):::main
+    M2(( )):::main
+    M3(( )):::main
+  end
+
+  subgraph Release
+    R0(( )):::release
+    R1(( )):::release
+    R2(( )):::release
+  end
+
+  subgraph Develop
+    D0((develop)):::develop
+    D1((dev work)):::develop
+    D2(( )):::develop
+    D3(( )):::develop
+  end
+
+  subgraph FeatureA
+    F0((feature/cool-thing)):::feature
+    F1(( )):::feature
+    F2(( )):::feature
+  end
+
+  subgraph FeatureB
+    F3((feature/other)):::feature2
+    F4(( )):::feature2
+    F5(( )):::feature2
+  end
+
+  %% Flows
+  M0 --> M1 --> M2 --> M3
+  M1 -.-> D0
+  D0 --> D1 --> D2 --> D3
+  D1 -.-> F0 --> F1 --> F2
+  D2 -.-> F3 --> F4 --> F5
+  F2 -.-> D2
+  F5 -.-> D3
+  D3 --> R1 --> R2
+  R2 --> M3
+
+  %% Tags/labels
+  classDef main fill:#8BC34A,stroke:#4CAF50,color:#0b3,stroke-width:2px;
+  classDef release fill:#FFD54F,stroke:#FFA000,color:#8a5b00,stroke-width:2px;
+  classDef develop fill:#E76E50,stroke:#C63C22,color:#fff,stroke-width:2px;
+  classDef feature fill:#4FC3F7,stroke:#0288D1,color:#014b75,stroke-width:2px;
+  classDef feature2 fill:#81D4FA,stroke:#0277BD,color:#015282,stroke-width:2px;
+
+  %% Version tags
+  M1:::tag; M2:::tag; M3:::tag
+  classDef tag fill:#CFD8DC,stroke:#607D8B,color:#37474F,stroke-width:2px;
+  M1:::tag
+  M2:::tag
+  M3:::tag
+  M1 ---|"v0.1"| M1
+  M2 ---|"v0.2"| M2
+  M3 ---|"v1.0"| M3
 ```
-This shows a lightweight GitFlow: feature branches merge into `develop`, release branches stabilize, and `main` gets tagged on release (tag shown on the feature commit here for illustration). Open this file on GitHub or a Mermaid-capable viewer to render.
+This shows a lightweight GitFlow: feature branches merge into `develop`, release branches stabilize, and `main` gets tagged on release. Colors and wider spacing make it easier to scan (main/green, release/gold, develop/coral, features/blue variants).
 
 ---
 
