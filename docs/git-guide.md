@@ -147,52 +147,31 @@ git push origin --delete new-branch   # Delete remote branch
 
 **Branching flow (visual)**
 ```mermaid
-flowchart LR
-  classDef master fill:#9C27B0,stroke:#6A1B9A,color:#fff,stroke-width:2px;
-  classDef develop fill:#F4511E,stroke:#BF360C,color:#fff,stroke-width:2px;
-  classDef featureA fill:#FFB300,stroke:#F57C00,color:#fff,stroke-width:2px;
-  classDef featureB fill:#26C6DA,stroke:#0097A7,color:#004d5a,stroke-width:2px;
-  classDef ghost fill:#ECEFF1,stroke:#B0BEC5,color:#546E7A,stroke-dasharray:4;
-
-  %% Master lane
-  M0(( )):::master --> M1(( )):::master --> M2(( )):::master --> M3(( )):::master --> M4(( )):::master
-
-  %% Develop lane
-  D0(( )):::develop --> D1(( )):::develop --> D2(( )):::develop --> D3(( )):::develop --> D4(( )):::develop
-
-  %% Feature A lane (yellow)
-  A0(( )):::featureA --> A1(( )):::featureA --> A2(( )):::featureA
-
-  %% Feature B lane (teal)
-  B0(( )):::featureB --> B1(( )):::featureB --> B2(( )):::featureB --> B3(( )):::featureB
-
-  %% Joins
-  M0 -.-> D0
-  D1 -.-> A0
-  A2 -.-> D2
-  D2 -.-> B0
-  B3 -.-> D3
-  D4 -.-> M4
-
-  %% Labels
-  Lm["MASTER"]:::master
-  Ld["DEVELOP"]:::develop
-  La["FEATURE"]:::featureA
-  Lb["FEATURE"]:::featureB
-
-  %% Position labels on the left
-  Lm --- M0
-  Ld --- D0
-  La --- A0
-  Lb --- B0
-
-  %% Optional ghost nodes to extend baselines visually
-  M4 --- MG(( )):::ghost
-  D4 --- DG(( )):::ghost
-  A2 --- AG(( )):::ghost
-  B3 --- BG(( )):::ghost
+gitGraph LR:
+  commit id: "main-0"
+  branch develop
+  checkout develop
+  commit id: "dev-1"
+  branch feature/auth
+  commit id: "feat-auth-1"
+  commit id: "feat-auth-2"
+  checkout develop
+  merge feature/auth
+  branch feature/ui
+  checkout feature/ui
+  commit id: "feat-ui-1"
+  checkout develop
+  commit id: "dev-2"
+  merge feature/ui
+  branch release/1.0.0
+  checkout release/1.0.0
+  commit id: "stabilize"
+  checkout develop
+  merge release/1.0.0
+  checkout main
+  merge release/1.0.0 tag: "v1.0.0"
 ```
-This matches the showcased style: master (purple) stays steady at the top, develop (orange) carries ongoing work, and feature lanes (yellow/teal) branch off, merge back, and visually flow left-to-right.
+This mirrors a classic GitFlow-style picture: `main` stays stable, `develop` carries integrated work, features branch off and merge back, a release branch stabilizes, and `main` gets the tagged release.
 
 ---
 
