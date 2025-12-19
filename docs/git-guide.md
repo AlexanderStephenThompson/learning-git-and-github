@@ -171,6 +171,28 @@ This mirrors the earlier visual you preferred: `main` on top, `develop` in the m
 **Before vs. after rebase (image)**
 ![Before and after rebase](docs/assets/rebase.png)
 
+**Rebase path with ghosted original**
+```mermaid
+flowchart LR
+  %% Ghosted original (faded)
+  g1((ab)):::ghost --> g2((ab)):::ghost --> g3((ab)):::ghost
+  g1 --> g4((ab)):::ghost --> g3
+  g3 --> g5((ab)):::ghost
+
+  %% Spacer to separate layouts
+  g5 --- spacer([ ]):::spacer
+
+  %% Bright rebased path
+  spacer --- a1((ab)):::active --> a2((ab)):::active --> a3((ab)):::active
+
+  classDef ghost stroke:#d6d6d6,fill:#f8f8f8,color:#b8b8b8,stroke-width:6px,font-weight:600,opacity:0.35;
+  classDef active stroke:#e36f1c,fill:#fff,color:#111,stroke-width:6px,font-weight:700;
+  classDef spacer stroke:transparent,fill:transparent,color:transparent;
+
+  linkStyle 0,1,2,3,4 stroke:#d6d6d6,stroke-width:6px,opacity:0.35;
+  linkStyle 5,6,7 stroke:#e36f1c,stroke-width:6px;
+```
+
 ---
 
 ## Pull requests: clean reviews and merges
