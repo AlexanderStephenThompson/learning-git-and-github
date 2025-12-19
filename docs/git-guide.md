@@ -147,26 +147,58 @@ git push origin --delete new-branch   # Delete remote branch
 
 **Branching flow (visual)**
 ```mermaid
-gitGraph LR:
-  commit id: "main-0"
-  branch develop
-  checkout develop
-  commit id: "dev-1"
-  branch feature/auth
-  commit id: "feat-auth-1"
-  commit id: "feat-auth-2"
-  checkout develop
-  merge feature/auth
-  branch feature/ui
-  checkout feature/ui
-  commit id: "feat-ui-1"
-  checkout develop
-  commit id: "dev-2"
-  merge feature/ui
-  checkout main
-  merge develop tag: "v1.0.0"
+flowchart LR
+  classDef master fill:#9C27B0,stroke:#6A1B9A,color:#fff,stroke-width:2px;
+  classDef develop fill:#F4511E,stroke:#BF360C,color:#fff,stroke-width:2px;
+  classDef featureA fill:#FFB300,stroke:#F57C00,color:#fff,stroke-width:2px;
+  classDef featureB fill:#26C6DA,stroke:#0097A7,color:#004d5a,stroke-width:2px;
+  classDef label fill:#ECEFF1,stroke:#B0BEC5,color:#37474F;
+
+  %% Labels on the left
+  Lm["master"]:::label
+  Ld["develop"]:::label
+  La["feature"]:::label
+  Lb["feature"]:::label
+
+  %% Master lane
+  subgraph MASTER[ ]
+    direction LR
+    M0(( )):::master --> M1(( )):::master --> M2(( )):::master --> M3(( )):::master --> M4(( )):::master
+  end
+
+  %% Develop lane
+  subgraph DEV[ ]
+    direction LR
+    D0(( )):::develop --> D1(( )):::develop --> D2(( )):::develop --> D3(( )):::develop --> D4(( )):::develop
+  end
+
+  %% Feature A lane (yellow)
+  subgraph FA[ ]
+    direction LR
+    A0(( )):::featureA --> A1(( )):::featureA --> A2(( )):::featureA
+  end
+
+  %% Feature B lane (teal)
+  subgraph FB[ ]
+    direction LR
+    B0(( )):::featureB --> B1(( )):::featureB --> B2(( )):::featureB
+  end
+
+  %% Flows (branches and merges)
+  M0 -.-> D0
+  D1 -.-> A0
+  A2 -.-> D2
+  D2 -.-> B0
+  B2 -.-> D3
+  D4 -.-> M4
+
+  %% Position labels
+  Lm --- M0
+  Ld --- D0
+  La --- A0
+  Lb --- B0
 ```
-This mirrors a classic GitFlow-style picture (without a dedicated release branch): `main` stays stable, `develop` carries integrated work, features branch off and merge back, and `main` gets the tagged release.
+This matches the preferred style: master (purple) stays steady, develop (orange) carries ongoing work, and feature lanes (yellow/teal) branch off and merge back left-to-right.
 
 ---
 
