@@ -121,11 +121,52 @@ Links, decisions, screenshots.
 ---
 
 ## Branches and naming
-Good names make history readable. Prefix for intent, keep it short, and stay in sync with `main` so merges are painless.
+Branches are snapshots of the code with their own timeline, letting you build or experiment without touching `main`. Create a branch, switch to it, and work safely; commits here stay isolated until you merge. This keeps stable code clean while you iterate on features or experiments. Good names make history readable. Prefix for intent, keep it short, and stay in sync with `main` so merges are painless.
 - Prefix by intent: `feature/`, `fix/`, `chore/`, `docs/`, `spike/`.
 - Keep names short and descriptive: `feature/auth-magic-links`.
 - Sync main before branching to avoid conflicts: `git switch main && git pull --ff-only`.
 - Default: one issue → one branch → one PR.
+
+**Common actions**
+```bash
+git branch                 # List branches (* marks current)
+git branch new-branch      # Create a branch
+git branch -m old new      # Rename a branch
+git switch new-branch      # Move to a branch (or: git checkout new-branch)
+git push -u origin new-branch   # Publish branch to remote
+git switch main
+git merge new-branch       # Merge specified branch into current branch
+git branch -d new-branch   # Delete local branch when done
+git push origin --delete new-branch   # Delete remote branch
+```
+
+**Settling conflicts (after a merge reports conflicts)**
+1) Open the flagged files and choose what to keep.
+2) Stage the resolutions: `git add .`
+3) Commit the merge: `git commit -m "Resolve conflicts"`
+
+**Branching flow (visual)**
+```mermaid
+gitGraph
+  commit id: "main"
+  branch develop
+  checkout develop
+  commit id: "dev work"
+  branch feature/cool-thing
+  checkout feature/cool-thing
+  commit id: "feature work"
+  checkout develop
+  merge feature/cool-thing
+  branch release/1.0.0
+  checkout release/1.0.0
+  commit id: "stabilize"
+  checkout develop
+  merge release/1.0.0
+  checkout main
+  merge release/1.0.0
+  tag: "v1.0.0"
+```
+This shows a lightweight GitFlow: feature branches merge into `develop`, release branches stabilize, and `main` gets tagged on release. Open this file on GitHub or a Mermaid-capable viewer to render.
 
 ---
 
