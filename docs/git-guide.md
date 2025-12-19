@@ -1,199 +1,238 @@
-# Git Branches: A Practical Guide
+# GitHub Guide for Solo Developers
 
-This guide teaches you how to create, use, and manage branches in Git for effective version control and collaboration.
-
----
-
-## What is a Branch?
-A branch is an independent line of development in your project. The default branch is usually called `main` or `master`. Branches let you work on features, fixes, or experiments without affecting the main codebase.
+This is a practical reference + do-along guide to help a solo developer work confidently on GitHub: plan projects, use issues, branch well, open/merge pull requests, release, and automate. Each section has quick references and short walkthroughs you can repeat.
 
 ---
 
-## Creating a Branch
+## Table of contents
+- [Mindset and setup](#mindset-and-setup)
+- [Create a new repository](#create-a-new-repository)
+- [Daily workflow (do-along)](#daily-workflow-do-along)
+- [Issues: tracking work](#issues-tracking-work)
+- [Branches and naming](#branches-and-naming)
+- [Pull requests: clean reviews and merges](#pull-requests-clean-reviews-and-merges)
+- [Releases and tags](#releases-and-tags)
+- [Automation with GitHub Actions](#automation-with-github-actions)
+- [Security basics](#security-basics)
+- [Housekeeping and hygiene](#housekeeping-and-hygiene)
+- [Common commands reference](#common-commands-reference)
+- [Further reading](#further-reading)
 
-Create a new branch:
+---
+
+## Mindset and setup
+- Keep `main` always releasable; branch for any change.
+- Prefer small, frequent pull requests over large drops.
+- Automate tests and linting in CI; run locally before pushing.
+- Configure your identity once: `git config --global user.name "Your Name"` and `git config --global user.email "you@example.com"`.
+
+---
+
+## Create a new repository
+1) Create on GitHub: New repo → choose name, description, license, `.gitignore` (pick your language), add README.
+2) Clone locally:
 ```bash
-git branch feature/my-new-feature
+git clone https://github.com/OWNER/REPO.git
+cd REPO
 ```
-Or create and switch in one step:
+3) Verify remotes:
 ```bash
-git checkout -b feature/my-new-feature
+git remote -v
 ```
-
----
-
-## Listing Branches
-
-List local branches:
+4) Create a first commit if needed:
 ```bash
-git branch
+git status
+git add .
+git commit -m "chore: initial commit"
+git push -u origin main
 ```
-List remote branches:
+
+---
+
+## Daily workflow (do-along)
+Use this when starting a day or a task.
+
+1) Sync main and dependencies
 ```bash
-git branch -r
+git switch main
+git pull --ff-only
 ```
-List all branches:
+2) Create a focused branch
 ```bash
-git branch -a
+git switch -c feature/short-task-name
 ```
-
----
-
-## Switching Branches
-
-Switch to an existing branch:
+3) Code, commit in small steps
 ```bash
-git checkout feature/my-new-feature
+git status
+git add path/to/file
+git commit -m "feat: add X"   # or chore/fix/docs/test
 ```
-Or with newer Git:
+4) Push and publish branch
 ```bash
-git switch feature/my-new-feature
+git push -u origin feature/short-task-name
 ```
-
----
-
-## Merging Branches
-
-Merge changes from one branch into another (usually into `main`):
+5) Open PR (via GitHub UI or CLI)
 ```bash
-git checkout main
-git merge feature/my-new-feature
+gh pr create --fill   # GitHub CLI; or use the web form
 ```
-
----
-
-## Deleting Branches
-
-Delete a local branch:
+6) Run checks locally before merge
 ```bash
-git branch -d feature/my-new-feature      # Safe delete (if merged)
-git branch -D feature/my-new-feature      # Force delete (even if not merged)
+npm test && npm run lint   # adjust to your stack
 ```
-Delete a remote branch:
+7) Merge when green (see PR section), then clean up branch
 ```bash
-git push origin --delete feature/my-new-feature
+git switch main
+git pull --ff-only
+git branch -d feature/short-task-name
+git push origin --delete feature/short-task-name
 ```
 
 ---
 
-## Pushing a Branch to GitHub
+## Issues: tracking work
+**When to open an issue:** new feature, bug, question, chore, or decision to document.
 
-Push your branch to the remote repository:
+**Write great issues**
+- Title: problem or goal first, outcome oriented.
+- Body: context (why), expected vs. actual (for bugs), acceptance criteria, reproduction steps, logs/screenshots if relevant.
+- Labels: `bug`, `feature`, `docs`, `chore`, `priority:P1/P2/P3`.
+- Assignees/milestone: helps prioritization.
+
+**Quick issue template (copy/paste)**
+```
+## Summary
+What needs to change and why.
+
+## Acceptance criteria
+- [ ] Outcome 1
+- [ ] Outcome 2
+
+## Notes
+Links, decisions, screenshots.
+```
+
+---
+
+## Branches and naming
+- Prefix by intent: `feature/`, `fix/`, `chore/`, `docs/`, `spike/`.
+- Keep names short and descriptive: `feature/auth-magic-links`.
+- Sync main before branching to avoid conflicts: `git switch main && git pull --ff-only`.
+- Default: one issue → one branch → one PR.
+
+---
+
+## Pull requests: clean reviews and merges
+**Open a PR**
+- Keep PRs small (ideally < 300 lines changed) and scoped to one thing.
+- Title format: `[type]: summary` (e.g., `feat: add search filters`).
+- Description checklist:
+  - What/why: 2-3 sentences.
+  - How tested: commands or screenshots.
+  - Risks/rollback plan.
+  - Links: issue numbers, design docs.
+
+**Do-along: open and merge a PR (solo workflow)**
+1) Create branch and commit (from the daily workflow).
+2) Push branch: `git push -u origin feature/...`.
+3) Open PR:
 ```bash
-git push origin feature/my-new-feature
+gh pr create --title "feat: clear wording" --body "Why/what/how tested" --base main --head feature/clear-wording
 ```
+   Or use GitHub UI: Compare & pull request → fill template.
+4) Self-review: read the diff, add comments, ensure tests run.
+5) Merge strategy: prefer **Squash and merge** for tidy history; ensure branch is up-to-date.
+6) After merge: delete branch locally/remotely (commands in daily workflow).
+
+**Keep history clean**
+- Rebase small PRs to catch up: `git pull --rebase origin main` while on your branch.
+- Avoid force pushes to shared branches; for solo work, force push is fine after rebase.
 
 ---
 
-## Pulling Remote Branches
+## Releases and tags
+- Tag important milestones: `git tag v1.2.0 && git push origin v1.2.0`.
+- Use GitHub Releases to attach notes, binaries, and changelogs.
+- Keep a `CHANGELOG.md` with sections: Added/Changed/Fixed/Removed.
+- For semantic versioning: `MAJOR` (breaking), `MINOR` (features), `PATCH` (fixes).
 
-Fetch all branches:
+---
+
+## Automation with GitHub Actions
+**Starter workflow (Node example)**
+```yaml
+name: ci
+on: [pull_request, push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+      - run: npm test
+      - run: npm run lint
+```
+
+**Tips**
+- Keep workflows fast (< 10 minutes); cache dependencies.
+- Protect `main` with required checks before merge.
+- Use environments for staging/production deployments.
+
+---
+
+## Security basics
+- Use a `.gitignore` to avoid committing secrets and build artifacts.
+- Never commit `.env` with secrets; use GitHub Actions secrets or environment variables.
+- Enable Dependabot alerts and updates (Settings → Code security and analysis).
+- Sign commits if required: `git config --global commit.gpgsign true` and add your key.
+
+---
+
+## Housekeeping and hygiene
+- Remove merged branches regularly.
+- Run `git status` often; keep working tree clean.
+- Rebase or merge main frequently on long-lived branches to reduce conflicts.
+- Back up with tags and Releases for important milestones.
+
+---
+
+## Common commands reference
 ```bash
-git fetch
-```
-Switch to a remote branch:
-```bash
-git checkout origin/feature/my-new-feature
-```
+# Sync main
+git switch main
+git pull --ff-only
 
----
+# New branch
+git switch -c feature/thing
 
-## Practical Tips
-- Use descriptive branch names (`feature/`, `bugfix/`, `docs/`, etc.)
-- Always pull latest changes before merging
-- Delete branches after merging to keep your repo clean
-- Use branches for each new feature, bugfix, or experiment
+# Stage and commit
+git status
+git add file
+git commit -m "feat: do thing"
 
----
+# Push and track
+git push -u origin feature/thing
 
-## Visual Example
+# Update branch with main
+git switch feature/thing
+git pull --rebase origin main
 
-```
-* main
-  |\
-  | * feature/my-new-feature
-  |/
-* main (after merge)
-```
+# Tag and push
+git tag v1.0.0
+git push origin v1.0.0
 
----
-
-## Visualizing Git Branch Actions
-
-Below are diagrams using markdown code blocks to illustrate common git branch actions:
-
----
-
-### 1. Creating and Merging a Feature Branch
-
-```mermaid
-gitGraph
-   commit id: "Start"
-   branch feature
-   commit id: "Work on feature"
-   checkout main
-   commit id: "Main work"
-   merge feature
+# Delete branch
+git branch -d feature/thing
+git push origin --delete feature/thing
 ```
 
 ---
 
-### 2. Deleting a Branch After Merge
-
-```mermaid
-gitGraph
-   commit id: "Start"
-   branch feature
-   commit id: "Feature work"
-   checkout main
-   commit id: "Main work"
-   merge feature
-   delete feature
-```
-
----
-
-### 3. Multiple Feature Branches and Merges
-
-```mermaid
-gitGraph
-   commit id: "Start"
-   branch feature1
-   commit id: "Feature 1 work"
-   checkout main
-   branch feature2
-   commit id: "Feature 2 work"
-   checkout main
-   commit id: "Main work"
-   merge feature1
-   merge feature2
-   delete feature1
-   delete feature2
-```
-
----
-
-### 4. Rebasing a Feature Branch
-
-```mermaid
-gitGraph
-   commit id: "Start"
-   branch feature
-   commit id: "Feature work"
-   checkout main
-   commit id: "Main work"
-   checkout feature
-   commit id: "Rebase feature onto main"
-```
-
----
-
-> **Note:** These diagrams use [Mermaid](https://mermaid-js.github.io/mermaid/#/) syntax, which is supported in GitHub markdown files and many markdown editors. If you view this file on GitHub, the diagrams may not render natively, but you can use a Mermaid-enabled editor or VS Code extension for visualization.
-
----
-
-## Further Reading
-- [Git Branching Documentation](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+## Further reading
 - [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow)
-- [Atlassian Git Branching Guide](https://www.atlassian.com/git/tutorials/using-branches)
+- [GitHub CLI](https://cli.github.com/manual/)
+- [Protected branches](https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches)
+- [Actions docs](https://docs.github.com/actions)
+- [Semantic versioning](https://semver.org/)
 
