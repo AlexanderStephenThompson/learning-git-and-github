@@ -173,52 +173,60 @@ This mirrors a classic GitFlow-style picture (without a dedicated release branch
 ### Merge vs. rebase (visual)
 ```mermaid
 flowchart LR
-  classDef master fill:#E53935,stroke:#B71C1C,color:#fff,stroke-width:2px;
-  classDef feature fill:#FB8C00,stroke:#E65100,color:#fff,stroke-width:2px;
+  classDef master fill:#8e44ad,stroke:#6c3483,color:#fff,stroke-width:2px;
+  classDef feature fill:#f39c12,stroke:#d68910,color:#fff,stroke-width:2px;
+  classDef note fill:#ECEFF1,stroke:#B0BEC5,color:#37474F;
+
+  %% Labels on the left
+  CM["Commits"]:::note
+  MM["Merge"]:::note
+  RM["Rebase"]:::note
 
   %% Commits column
-  subgraph Commits
+  subgraph C[ ]
     direction TB
-    C_m1((ab)):::master
-    C_m2((ab)):::master
-    C_m3((ab)):::master
-    C_f1(( )):::feature
-    C_f2((ab)):::feature
-    C_f3((ab)):::feature
-    C_m1 --> C_m2 --> C_m3
-    C_f1 --> C_f2 --> C_f3
+    c1((ab)):::master
+    c2((ab)):::master
+    c3((ab)):::master
+    cf1(( )):::feature
+    cf2((ab)):::feature
+    cf3((ab)):::feature
+    c1 --> c2 --> c3
+    cf1 --> cf2 --> cf3
   end
 
   %% Merge column
-  subgraph Merge
+  subgraph M[ ]
     direction TB
-    M_m1((ab)):::master
-    M_m2((ab)):::master
-    M_m3((ab)):::master
-    M_f1(( )):::feature
-    M_f2((ab)):::feature
-    M_f3((ab)):::feature
-    M_merge((merge)):::master
-    M_m1 --> M_m2 --> M_m3 --> M_merge
-    M_f1 --> M_f2 --> M_f3 --> M_merge
+    m1((ab)):::master
+    m2((ab)):::master
+    m3((ab)):::master
+    mf1(( )):::feature
+    mf2((ab)):::feature
+    mf3((ab)):::feature
+    mmerge((merge)):::master
+    m1 --> m2 --> m3 --> mmerge
+    mf1 --> mf2 --> mf3 --> mmerge
   end
 
   %% Rebase column
-  subgraph Rebase
+  subgraph R[ ]
     direction TB
-    R_m1((ab)):::master
-    R_m2((ab)):::master
-    R_m3((ab)):::master
-    R_f1(( )):::feature
-    R_f2((ab)):::feature
-    R_f3((ab)):::feature
-    R_f4((ab)):::feature
-    R_m1 --> R_m2 --> R_m3
-    R_m3 --> R_f1 --> R_f2 --> R_f3 --> R_f4
+    r1((ab)):::master
+    r2((ab)):::master
+    r3((ab)):::master
+    rf1(( )):::feature
+    rf2((ab)):::feature
+    rf3((ab)):::feature
+    rf4((ab)):::feature
+    r1 --> r2 --> r3
+    r3 --> rf1 --> rf2 --> rf3 --> rf4
   end
 
-  %% Spacers to separate columns
-  Commits --- Merge --- Rebase
+  %% Align columns with transparent links
+  CM --- C
+  MM --- M
+  RM --- R
 ```
 **How to read this**
 - Commits: master (red) and feature (orange) progress independently; histories diverge.
