@@ -168,6 +168,9 @@ gitGraph LR:
 ```
 This mirrors the earlier visual you preferred: `main` on top, `develop` in the middle, and feature branches merging back in, with a tag on the release point.
 
+**Before vs. after rebase (image)**
+![Before and after rebase](docs/assets/rebase.png)
+
 ---
 
 ## Pull requests: clean reviews and merges
