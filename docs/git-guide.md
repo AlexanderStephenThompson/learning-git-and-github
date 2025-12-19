@@ -129,14 +129,14 @@ Branches are snapshots of the code with their own timeline, letting you build or
 
 **Common actions**
 ```bash
-git branch                 # List branches (* marks current)
-git branch new-branch      # Create a branch
-git branch -m old new      # Rename a branch
-git switch new-branch      # Move to a branch (or: git checkout new-branch)
-git push -u origin new-branch   # Publish branch to remote
+git branch                            # List branches (* marks current)
+git branch new-branch                 # Create a branch
+git branch -m old new                 # Rename a branch
+git switch new-branch                 # Move to a branch (or: git checkout new-branch)
+git push -u origin new-branch         # Publish branch to remote
 git switch main
-git merge new-branch       # Merge specified branch into current branch
-git branch -d new-branch   # Delete local branch when done
+git merge new-branch                  # Merge specified branch into current branch
+git branch -d new-branch              # Delete local branch when done
 git push origin --delete new-branch   # Delete remote branch
 ```
 
@@ -147,14 +147,14 @@ git push origin --delete new-branch   # Delete remote branch
 
 **Branching flow (visual)**
 ```mermaid
-gitGraph LR
+gitGraph LR:
   commit id: "main"
   branch develop
   checkout develop
   commit id: "dev work"
   branch feature/cool-thing
   checkout feature/cool-thing
-  commit id: "feature work"
+  commit id: "feature work" tag: "v1.0.0"
   checkout develop
   merge feature/cool-thing
   branch release/1.0.0
@@ -165,7 +165,7 @@ gitGraph LR
   checkout main
   merge release/1.0.0
 ```
-This shows a lightweight GitFlow: feature branches merge into `develop`, release branches stabilize, and `main` gets tagged on release (tag not drawn). Open this file on GitHub or a Mermaid-capable viewer to render.
+This shows a lightweight GitFlow: feature branches merge into `develop`, release branches stabilize, and `main` gets tagged on release (tag shown on the feature commit here for illustration). Open this file on GitHub or a Mermaid-capable viewer to render.
 
 ---
 
