@@ -170,6 +170,61 @@ This mirrors a classic GitFlow-style picture (without a dedicated release branch
 
 ---
 
+### Merge vs. rebase (visual)
+```mermaid
+flowchart LR
+  classDef master fill:#E53935,stroke:#B71C1C,color:#fff,stroke-width:2px;
+  classDef feature fill:#FB8C00,stroke:#E65100,color:#fff,stroke-width:2px;
+
+  %% Commits column
+  subgraph Commits
+    direction TB
+    C_m1((ab)):::master
+    C_m2((ab)):::master
+    C_m3((ab)):::master
+    C_f1(( )):::feature
+    C_f2((ab)):::feature
+    C_f3((ab)):::feature
+    C_m1 --> C_m2 --> C_m3
+    C_f1 --> C_f2 --> C_f3
+  end
+
+  %% Merge column
+  subgraph Merge
+    direction TB
+    M_m1((ab)):::master
+    M_m2((ab)):::master
+    M_m3((ab)):::master
+    M_f1(( )):::feature
+    M_f2((ab)):::feature
+    M_f3((ab)):::feature
+    M_merge((merge)):::master
+    M_m1 --> M_m2 --> M_m3 --> M_merge
+    M_f1 --> M_f2 --> M_f3 --> M_merge
+  end
+
+  %% Rebase column
+  subgraph Rebase
+    direction TB
+    R_m1((ab)):::master
+    R_m2((ab)):::master
+    R_m3((ab)):::master
+    R_f1(( )):::feature
+    R_f2((ab)):::feature
+    R_f3((ab)):::feature
+    R_f4((ab)):::feature
+    R_m1 --> R_m2 --> R_m3
+    R_m3 --> R_f1 --> R_f2 --> R_f3 --> R_f4
+  end
+
+  %% Spacers to separate columns
+  Commits --- Merge --- Rebase
+```
+**How to read this**
+- Commits: master (red) and feature (orange) progress independently; histories diverge.
+- Merge: histories keep their own timelines and join with a merge commit; feature history stays as-is.
+- Rebase: feature history is replayed on top of master, creating a linear history (no merge bubble).
+
 ## Pull requests: clean reviews and merges
 Pull requests are where your work meets scrutiny—even if you are reviewing yourself. A good PR makes the change obvious, the risk visible, and the rollback clear. Think of it as a narrated tour of the diff: here’s what changed, why it’s safe, and how we know it works. A pull request is simply a request to merge one branch into another (usually feature → main) and serves as the review and safety gate: discussion, checks (tests/lint), approvals, and merge strategy.
 
