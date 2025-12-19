@@ -183,22 +183,21 @@ This mirrors the earlier visual you preferred: `main` on top, `develop` in the m
   },
   "themeVariables": {
     "git0": "#d2222a",
-    "git1": "#f4b9a6",
+    "git1": "#f8e1d6",
     "git2": "#ff8c32"
   },
-  "themeCSS": ".branch.branch-1 path { stroke-opacity: 0.35; stroke-dasharray: 6 5; } .branch.branch-1 .commit circle { opacity: 0.45; } .branch.branch-1 text { fill: #b66f66; opacity: 0.6; } .branch.branch-2 path { stroke-width: 3px; } .branch.branch-2 text { font-weight: 700; } .commit .commit-label { font-size: 10px; }"
+  "themeCSS": ".branch.branch-1 path { stroke-opacity: 0.2; stroke-dasharray: 6 5; } .branch.branch-1 .commit circle { opacity: 0.25; } .branch.branch-1 text { fill: #c48f82; opacity: 0.4; } .branch.branch-2 path { stroke-width: 3px; } .branch.branch-2 text { font-weight: 700; } .commit .commit-label { font-size: 10px; }"
 } }%%
 gitGraph LR:
   commit id: "main-0" tag: "main"
   commit id: "main-1"
-  commit id: "main-2"
   branch ghost
   checkout ghost
   commit id: "ghost-1"
   commit id: "ghost-2"
   commit id: "ghost-3"
   checkout main
-  commit id: "main-3"
+  commit id: "main-2"
   branch rebased
   checkout rebased
   commit id: "rebased-1"
