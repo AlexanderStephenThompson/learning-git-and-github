@@ -168,30 +168,44 @@ gitGraph LR:
 ```
 This mirrors the earlier visual you preferred: `main` on top, `develop` in the middle, and feature branches merging back in, with a tag on the release point.
 
-**Before vs. after rebase (image)**
+**Rebase vs. original (image)**
 ![Before and after rebase](docs/assets/rebase.png)
 
-**Rebase path with ghosted original**
+**Rebase path with ghosted original (gitGraph)**
 ```mermaid
-flowchart LR
-  %% Ghosted original (faded)
-  g1((ab)):::ghost --> g2((ab)):::ghost --> g3((ab)):::ghost
-  g1 --> g4((ab)):::ghost --> g3
-  g3 --> g5((ab)):::ghost
-
-  %% Spacer to separate layouts
-  g5 --- spacer([ ]):::spacer
-
-  %% Bright rebased path
-  spacer --- a1((ab)):::active --> a2((ab)):::active --> a3((ab)):::active
-
-  classDef ghost stroke:#d6d6d6,fill:#f8f8f8,color:#b8b8b8,stroke-width:6px,font-weight:600,opacity:0.35;
-  classDef active stroke:#e36f1c,fill:#fff,color:#111,stroke-width:6px,font-weight:700;
-  classDef spacer stroke:transparent,fill:transparent,color:transparent;
-
-  linkStyle 0,1,2,3,4 stroke:#d6d6d6,stroke-width:6px,opacity:0.35;
-  linkStyle 5,6,7 stroke:#e36f1c,stroke-width:6px;
+%%{init: {
+  "theme": "base",
+  "gitGraph": {
+    "direction": "LR",
+    "showCommitLabel": true,
+    "rotateCommitLabel": true,
+    "mainBranchName": "main"
+  },
+  "themeVariables": {
+    "git0": "#d2222a",
+    "git1": "#f4b9a6",
+    "git2": "#ff8c32"
+  },
+  "themeCSS": ".branch.branch-1 path { stroke-opacity: 0.35; stroke-dasharray: 6 5; } .branch.branch-1 .commit circle { opacity: 0.45; } .branch.branch-1 text { fill: #b66f66; opacity: 0.6; } .branch.branch-2 path { stroke-width: 3px; } .branch.branch-2 text { font-weight: 700; } .commit .commit-label { font-size: 10px; }"
+} }%%
+gitGraph LR:
+  commit id: "main-0" tag: "main"
+  commit id: "main-1"
+  commit id: "main-2"
+  branch ghost
+  checkout ghost
+  commit id: "ghost-1"
+  commit id: "ghost-2"
+  commit id: "ghost-3"
+  checkout main
+  commit id: "main-3"
+  branch rebased
+  checkout rebased
+  commit id: "rebased-1"
+  commit id: "rebased-2"
+  commit id: "rebased-3"
 ```
+Ghosted path shows the pre-rebase history; bright orange shows the rewritten commits after rebase.
 
 ---
 
