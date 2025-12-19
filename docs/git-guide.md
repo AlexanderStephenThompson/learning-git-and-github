@@ -233,19 +233,15 @@ flowchart LR
 - Merge: histories keep their own timelines and join with a merge commit; feature history stays as-is.
 - Rebase: feature history is replayed on top of master, creating a linear history (no merge bubble).
 
-### Before vs. after rebase (styled)
+### Before vs. after rebase (side by side)
 ```mermaid
 flowchart LR
   classDef master fill:#34495e,stroke:#2c3e50,color:#fff,stroke-width:2px;
   classDef feature fill:#c0392b,stroke:#922b21,color:#fff,stroke-width:2px;
   classDef label fill:#ECEFF1,stroke:#B0BEC5,color:#37474F;
 
-  %% Labels
-  L1["Before rebase"]:::label
-  L2["After rebase"]:::label
-
-  %% Before
-  subgraph BEFORE[ ]
+  %% Left: before rebase
+  subgraph BEFORE[Before rebase]
     direction LR
     A((A)):::master --> B((B)):::master --> C((C)):::master --> D((D)):::master
     B -.-> E((E)):::feature --> F((F)):::feature
@@ -253,8 +249,11 @@ flowchart LR
     LF["feature"]:::label --- E
   end
 
-  %% After
-  subgraph AFTER[ ]
+  %% Spacer between panels
+  spacer1[" "]:::label
+
+  %% Right: after rebase
+  subgraph AFTER[After rebase]
     direction LR
     A2((A)):::master --> B2((B)):::master --> C2((C)):::master --> D2((D)):::master
     D2 -.-> E2((E)):::feature --> F2((F)):::feature
@@ -262,10 +261,9 @@ flowchart LR
     LF2["feature"]:::label --- E2
   end
 
-  L1 --- BEFORE
-  L2 --- AFTER
+  BEFORE --- spacer1 --- AFTER
 ```
-**What changes in a rebase?** The feature commits (E, F) are replayed onto the tip of master, creating a straight line; history is linear and the merge bubble disappears.
+**What changes in a rebase?** The feature commits (E, F) move to sit on top of the latest master commits, making history linear and removing the merge bubble.
 
 ## Pull requests: clean reviews and merges
 Pull requests are where your work meets scrutiny—even if you are reviewing yourself. A good PR makes the change obvious, the risk visible, and the rollback clear. Think of it as a narrated tour of the diff: here’s what changed, why it’s safe, and how we know it works. A pull request is simply a request to merge one branch into another (usually feature → main) and serves as the review and safety gate: discussion, checks (tests/lint), approvals, and merge strategy.
