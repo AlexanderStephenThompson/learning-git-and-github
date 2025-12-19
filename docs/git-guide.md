@@ -25,6 +25,7 @@ Bookmark it, and reuse the commands and checklists whenever you start a new task
 ---
 
 ## Mindset and setup
+Start with habits that keep you fast and safe: keep `main` shippable, branch for every change, automate what you can, and make sure Git knows who you are. These are the guardrails that prevent slowdowns later.
 - Keep `main` always releasable; branch for any change.
 - Prefer small, frequent pull requests over large drops.
 - Automate tests and linting in CI; run locally before pushing.
@@ -33,6 +34,7 @@ Bookmark it, and reuse the commands and checklists whenever you start a new task
 ---
 
 ## Create a new repository
+Use this when you are spinning up something new. Create the repo, clone it, verify remotes, and make a first commit so your history starts clean and intentional.
 1) Create on GitHub: New repo → choose name, description, license, `.gitignore` (pick your language), add README.
 2) Clone locally:
 ```bash
@@ -54,7 +56,7 @@ git push -u origin main
 ---
 
 ## Daily workflow (do-along)
-Use this when starting a day or a task.
+Use this at the start of a day or task. It keeps your branch current, your commits small, your PRs ready, and your cleanup automatic.
 
 1) Sync main and dependencies
 ```bash
@@ -94,9 +96,7 @@ git push origin --delete feature/short-task-name
 ---
 
 ## Issues: tracking work
-Issues are your lightweight project manager. They capture intent before code exists, and they keep future-you honest about why a change happened. Treat them as the conversation starter and record of decisions: when someone asks “why did we do this?” you point to the issue.
-
-**What is an issue?** A single ticket that describes work to be done (feature, bug, question, chore). It is the source of truth for context, decisions, and acceptance criteria. No code changes live here—only discussion and state.
+Issues are your lightweight project manager. They capture intent before code exists, and they keep future-you honest about why a change happened. Treat them as the conversation starter and record of decisions: when someone asks “why did we do this?” you point to the issue. An issue is a single ticket that describes work to be done (feature, bug, question, chore) and acts as the source of truth for context, decisions, and acceptance criteria. No code changes live here—only discussion and state.
 
 **When to open an issue:** new feature, bug, question, chore, or decision to document.
 
@@ -121,6 +121,7 @@ Links, decisions, screenshots.
 ---
 
 ## Branches and naming
+Good names make history readable. Prefix for intent, keep it short, and stay in sync with `main` so merges are painless.
 - Prefix by intent: `feature/`, `fix/`, `chore/`, `docs/`, `spike/`.
 - Keep names short and descriptive: `feature/auth-magic-links`.
 - Sync main before branching to avoid conflicts: `git switch main && git pull --ff-only`.
@@ -129,9 +130,7 @@ Links, decisions, screenshots.
 ---
 
 ## Pull requests: clean reviews and merges
-Pull requests are where your work meets scrutiny—even if you are reviewing yourself. A good PR makes the change obvious, the risk visible, and the rollback clear. Think of it as a narrated tour of the diff: here’s what changed, why it’s safe, and how we know it works.
-
-**What is a pull request?** A request to merge one branch into another (usually feature → main). It is the review and safety gate: discussion, checks (tests/lint), approvals, and merge strategy.
+Pull requests are where your work meets scrutiny—even if you are reviewing yourself. A good PR makes the change obvious, the risk visible, and the rollback clear. Think of it as a narrated tour of the diff: here’s what changed, why it’s safe, and how we know it works. A pull request is simply a request to merge one branch into another (usually feature → main) and serves as the review and safety gate: discussion, checks (tests/lint), approvals, and merge strategy.
 
 **Best practices**
 - Scope: one issue/feature per PR; keep it small (< ~300 changed lines) for fast review.
@@ -159,6 +158,7 @@ gh pr create --title "feat: clear wording" --body "Why/what/how tested" --base m
 ---
 
 ## Releases and tags
+Releases and tags are your milestones. Tags mark a commit in time; Releases add human-friendly notes and artifacts so you (and users) know what shipped when.
 - Tag important milestones: `git tag v1.2.0 && git push origin v1.2.0`.
 - Use GitHub Releases to attach notes, binaries, and changelogs.
 - Keep a `CHANGELOG.md` with sections: Added/Changed/Fixed/Removed.
@@ -167,6 +167,7 @@ gh pr create --title "feat: clear wording" --body "Why/what/how tested" --base m
 ---
 
 ## Automation with GitHub Actions
+CI is your tireless reviewer: it runs tests, lint, and builds so you catch issues before merge. Start simple, keep it fast, and require checks on `main`.
 **Starter workflow (Node example)**
 ```yaml
 name: ci
@@ -191,6 +192,7 @@ jobs:
 ---
 
 ## Security basics
+Small habits here prevent big headaches: keep secrets out of git, turn on alerts, and sign what matters. Treat security as part of shipping, not an afterthought.
 - Use a `.gitignore` to avoid committing secrets and build artifacts.
 - Never commit `.env` with secrets; use GitHub Actions secrets or environment variables.
 - Enable Dependabot alerts and updates (Settings → Code security and analysis).
@@ -199,6 +201,7 @@ jobs:
 ---
 
 ## Housekeeping and hygiene
+Tidy repos are faster to work in. Remove stale branches, keep your working tree clean, and sync with `main` often to avoid surprise conflicts.
 - Remove merged branches regularly.
 - Run `git status` often; keep working tree clean.
 - Rebase or merge main frequently on long-lived branches to reduce conflicts.
@@ -207,6 +210,7 @@ jobs:
 ---
 
 ## Common commands reference
+This is the grab-and-go section: copy/paste when you need the exact incantation without thinking.
 ```bash
 # Sync main
 git switch main
