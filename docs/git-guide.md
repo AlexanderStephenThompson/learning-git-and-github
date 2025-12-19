@@ -168,9 +168,6 @@ gitGraph LR:
 ```
 This mirrors the earlier visual you preferred: `main` on top, `develop` in the middle, and feature branches merging back in, with a tag on the release point.
 
-**Rebase vs. original (image)**
-![Before and after rebase](docs/assets/rebase.png)
-
 **Rebase path with ghosted original (gitGraph)**
 ```mermaid
 %%{init: {
@@ -190,7 +187,9 @@ This mirrors the earlier visual you preferred: `main` on top, `develop` in the m
 } }%%
 gitGraph LR:
   commit id: "main-0" tag: "main"
+  commit id: "main-0a"
   commit id: "main-1"
+  commit id: "main-1a"
   branch ghost
   checkout ghost
   commit id: "ghost-1"
